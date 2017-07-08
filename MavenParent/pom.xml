@@ -13,6 +13,7 @@
     <properties>
         <checkstyle.version>7.5</checkstyle.version>
         <checkstyle.xml>checkstyle.xml</checkstyle.xml>
+        <disable.semantic.versioning>false</disable.semantic.versioning>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
         <maven.analysis.configuration.version>1.0.0-SNAPSHOT</maven.analysis.configuration.version>
         <outputEncoding>UTF-8</outputEncoding>
@@ -25,7 +26,7 @@
         <plugin.maven.findbugs.version>3.0.4</plugin.maven.findbugs.version>
         <plugin.maven.install.version>2.5.2</plugin.maven.install.version>
         <plugin.maven.jacoco.version>0.7.9</plugin.maven.jacoco.version>
-        <plugin.maven.japicmp.version>0.9.4</plugin.maven.japicmp.version>
+        <plugin.maven.japicmp.version>0.10.0</plugin.maven.japicmp.version>
         <plugin.maven.jar.version>2.4</plugin.maven.jar.version>
         <plugin.maven.java.version>1.8</plugin.maven.java.version>
         <plugin.maven.jdepend.version>2.0</plugin.maven.jdepend.version>
@@ -40,7 +41,6 @@
         <pmd.fail>true</pmd.fail>
         <pmd.priority>5</pmd.priority>
         <pmd.rules>/rulesets/java/pmd-level0.xml</pmd.rules>
-        <unreleased>false</unreleased>
     </properties>
     <build>
         <pluginManagement>
@@ -50,7 +50,7 @@
                     <artifactId>japicmp-maven-plugin</artifactId>
                     <version>${plugin.maven.japicmp.version}</version>
                     <configuration>
-                        <skip>${unreleased}</skip>
+                        <skip>${disable.semantic.versioning}</skip>
                         <parameter>
                             <breakBuildBasedOnSemanticVersioning>true</breakBuildBasedOnSemanticVersioning>
                         </parameter>
