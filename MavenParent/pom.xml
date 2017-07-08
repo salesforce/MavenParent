@@ -13,8 +13,8 @@
     <properties>
         <checkstyle.version>7.5</checkstyle.version>
         <checkstyle.xml>checkstyle.xml</checkstyle.xml>
-        <force.analysis.configuration.version>1.0.5-SNAPSHOT</force.analysis.configuration.version>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
+        <maven.analysis.configuration.version>1.0.0-SNAPSHOT</maven.analysis.configuration.version>
         <outputEncoding>UTF-8</outputEncoding>
         <plugin.maven.checkstyle.version>2.17</plugin.maven.checkstyle.version>
         <plugin.maven.compiler.version>3.6.1</plugin.maven.compiler.version>
@@ -225,7 +225,7 @@
                         <dependency>
                             <groupId>com.salesforce.maven</groupId>
                             <artifactId>MavenAnalysisConf</artifactId>
-                            <version>${force.analysis.configuration.version}</version>
+                            <version>${maven.analysis.configuration.version}</version>
                         </dependency>
                     </dependencies>
                     <executions>
@@ -336,7 +336,7 @@
                         <dependency>
                             <groupId>com.salesforce.maven</groupId>
                             <artifactId>MavenAnalysisConf</artifactId>
-                            <version>${force.analysis.configuration.version}</version>
+                            <version>${maven.analysis.configuration.version}</version>
                         </dependency>
                     </dependencies>
                     <executions>
