@@ -1,0 +1,8 @@
+**/.settings/
+**/.project
+**/target/
+**/.pmd
+**/.checkstyle
+**/.classpath
+**/pom.xml.versionsBackup
+.drone.sec.yml
