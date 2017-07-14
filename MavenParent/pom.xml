@@ -32,12 +32,12 @@
         <plugin.maven.jdepend.version>2.0</plugin.maven.jdepend.version>
         <plugin.maven.jxr.version>2.5</plugin.maven.jxr.version>
         <plugin.maven.mycila-license.version>3.0</plugin.maven.mycila-license.version>
-        <plugin.maven.owasp.check>1.4.5</plugin.maven.owasp.check>
+        <plugin.maven.owasp.check>2.0.1</plugin.maven.owasp.check>
         <plugin.maven.pmd.version>3.8</plugin.maven.pmd.version>
         <plugin.maven.resources.version>3.0.2</plugin.maven.resources.version>
         <plugin.maven.surefire.version>2.19.1</plugin.maven.surefire.version>
         <plugin.maven.takari.proc>proc</plugin.maven.takari.proc>
-        <plugin.maven.takari.version>1.12.4</plugin.maven.takari.version>
+        <plugin.maven.takari.version>1.13.0</plugin.maven.takari.version>
         <pmd.fail>true</pmd.fail>
         <pmd.priority>5</pmd.priority>
         <pmd.rules>/rulesets/java/pmd-level0.xml</pmd.rules>
