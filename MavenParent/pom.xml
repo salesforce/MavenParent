@@ -17,6 +17,7 @@
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
         <maven.analysis.configuration.version>1.0.0-SNAPSHOT</maven.analysis.configuration.version>
         <outputEncoding>UTF-8</outputEncoding>
+        <owasp.failOnCVSSLevelOrGreater>8</owasp.failOnCVSSLevelOrGreater>
         <plugin.maven.checkstyle.version>2.17</plugin.maven.checkstyle.version>
         <plugin.maven.compiler.version>3.6.1</plugin.maven.compiler.version>
         <plugin.maven.depedency.version>3.0.0</plugin.maven.depedency.version>
@@ -408,13 +409,10 @@
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
                     <version>${plugin.maven.owasp.check}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <configuration>
+                        <!-- 1 through 10, 11 is never fail -->
+                        <failBuildOnCVSS>${owasp.failOnCVSSLevelOrGreater}</failBuildOnCVSS>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -515,6 +513,11 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${plugin.maven.jacoco.version}</version>
             </plugin>
+            <!-- plugin>
+                Bugged... boo.
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+            </plugin -->
         </plugins>
     </reporting>
     <scm>
