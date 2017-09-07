@@ -17,6 +17,7 @@
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
         <maven.analysis.configuration.version>1.0.0-SNAPSHOT</maven.analysis.configuration.version>
         <outputEncoding>UTF-8</outputEncoding>
+        <owasp.failOnCVSSLevelOrGreater>8</owasp.failOnCVSSLevelOrGreater>
         <plugin.maven.checkstyle.version>2.17</plugin.maven.checkstyle.version>
         <plugin.maven.compiler.version>3.6.1</plugin.maven.compiler.version>
         <plugin.maven.depedency.version>3.0.0</plugin.maven.depedency.version>
@@ -32,12 +33,12 @@
         <plugin.maven.jdepend.version>2.0</plugin.maven.jdepend.version>
         <plugin.maven.jxr.version>2.5</plugin.maven.jxr.version>
         <plugin.maven.mycila-license.version>3.0</plugin.maven.mycila-license.version>
-        <plugin.maven.owasp.check>1.4.5</plugin.maven.owasp.check>
+        <plugin.maven.owasp.check>2.0.1</plugin.maven.owasp.check>
         <plugin.maven.pmd.version>3.8</plugin.maven.pmd.version>
         <plugin.maven.resources.version>3.0.2</plugin.maven.resources.version>
         <plugin.maven.surefire.version>2.19.1</plugin.maven.surefire.version>
         <plugin.maven.takari.proc>proc</plugin.maven.takari.proc>
-        <plugin.maven.takari.version>1.12.4</plugin.maven.takari.version>
+        <plugin.maven.takari.version>1.13.0</plugin.maven.takari.version>
         <pmd.fail>true</pmd.fail>
         <pmd.priority>5</pmd.priority>
         <pmd.rules>/rulesets/java/pmd-level0.xml</pmd.rules>
@@ -408,13 +409,10 @@
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
                     <version>${plugin.maven.owasp.check}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <configuration>
+                        <!-- 1 through 10, 11 is never fail -->
+                        <failBuildOnCVSS>${owasp.failOnCVSSLevelOrGreater}</failBuildOnCVSS>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -515,6 +513,11 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${plugin.maven.jacoco.version}</version>
             </plugin>
+            <!-- plugin>
+                Bugged... boo.
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+            </plugin -->
         </plugins>
     </reporting>
     <scm>
