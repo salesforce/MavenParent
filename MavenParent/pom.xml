@@ -85,6 +85,7 @@
                             <exclude>${project.build.directory}/generated-sources/annotations/**</exclude>
                             <exclude>${project.build.directory}/generated-test-sources/test-annotations/**</exclude>
                             <exclude>**/pom.xml.versionsBackup</exclude>
+                            <exclude>LICENSE.txt</exclude>
                         </excludes>
                         <mapping>
                             <java>SLASHSTAR_STYLE</java>
