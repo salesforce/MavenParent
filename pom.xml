@@ -6,6 +6,13 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
+    <description>
+       Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
+       static analysis checks, and MavenParent that can use the later as bundled jar files downloaded from maven central.
+    </description>
+    <prerequisites>
+        <maven>3.5</maven>
+    </prerequisites>
     <modules>
         <module>MavenSiteSkin</module>
         <module>MavenAnalysisConf</module>
@@ -18,11 +25,11 @@
         <github.project>MavenParent</github.project>
         <github.site.location>${project.version}/</github.site.location>
         <plugin.maven.clean.version>3.0.0</plugin.maven.clean.version>
-        <plugin.maven.enforcer.version>1.4.1</plugin.maven.enforcer.version>
+        <plugin.maven.enforcer.version>3.0.0-M1</plugin.maven.enforcer.version>
         <plugin.maven.gpg.version>1.6</plugin.maven.gpg.version>
         <plugin.maven.reports.version>2.9</plugin.maven.reports.version>
         <plugin.maven.site.version>3.6</plugin.maven.site.version>
-        <plugin.maven.sortpom.version>2.5.0</plugin.maven.sortpom.version>
+        <plugin.maven.sortpom.version>2.8.0</plugin.maven.sortpom.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <build>

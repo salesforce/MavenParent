@@ -16,6 +16,25 @@
   </rule>
   <rule ref="rulesets/java/imports.xml" />
   <rule ref="rulesets/java/finalizers.xml" />
-  <rule ref="rulesets/java/strings.xml" />
-  <rule ref="rulesets/java/typeresolution.xml" />
+  <rule ref="rulesets/java/strings.xml">
+     <exclude name="AvoidDuplicateLiterals" />
+  </rule>
+  <rule ref="rulesets/java/strings.xml/AvoidDuplicateLiterals">
+    <description>Non-test classes may not have more than 4 duplicate literals, unless the literal is for an annotation.</description>
+    <properties>
+      <property name="skipAnnotations" value="true"/>
+      <property name="violationSuppressXPath" value="./ancestor::ClassOrInterfaceDeclaration[ends-with(@Image, 'Test') or ends-with(@Image, 'Tests')]" />
+    </properties>
+  </rule>
+  <rule ref="rulesets/java/typeresolution.xml">
+     <exclude name="SignatureDeclareThrowsException" />
+  </rule>
+  <rule ref="rulesets/java/typeresolution.xml/SignatureDeclareThrowsException">
+    <description>Methods/Constructors in non test classes may not explicitly java.lang.Exception</description>
+    <properties>
+      <!-- doesn't effect parameterized constructors, like maven's -->
+      <!-- property name="IgnoreJUnitCompletely" value="true"/-->
+      <property name="violationSuppressXPath" value="./ancestor::ClassOrInterfaceDeclaration[ends-with(@Image, 'Test') or ends-with(@Image, 'Tests')]" />
+    </properties>
+  </rule>
 </ruleset>

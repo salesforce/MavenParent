@@ -9,9 +9,21 @@
     <artifactId>MavenParent</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    <description>No dependencies, just plugin config.</description>
+    <description>
+        This project provides the best of maven as MavenParent. With this project you get:
+           takari-lifecycle, which has jdt based compiler that provides incremental recompilation, and proper APT support.
+              Just use the takari-jar packaging rather than the the default jar for all the takari goodness.
+           Checkstyle and PMD checks that will work by default in eclipse with m2e-codequality.
+           OWASP vulnerability checks.
+           Easy license of BSD-3 clause license with mycila-license plugin.
+           The ability to easily enforce symantic version on a jar project with japicmp.
+           Prevent duplicates on your classpath with ning's duplicate-finder.
+           All of the above can be configured or disabled easily with properties, just check their docs, except takari.
+           A whole slew of pretty maven reports including the above configured in the maven site.
+           The ability to easily deploy to oss nexus, and publish maven generated sites back to github's sites pages.
+    </description>
     <properties>
-        <checkstyle.version>7.5</checkstyle.version>
+        <checkstyle.version>8.2</checkstyle.version>
         <checkstyle.xml>checkstyle.xml</checkstyle.xml>
         <disable.semantic.versioning>false</disable.semantic.versioning>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
@@ -19,26 +31,25 @@
         <outputEncoding>UTF-8</outputEncoding>
         <owasp.failOnCVSSLevelOrGreater>8</owasp.failOnCVSSLevelOrGreater>
         <plugin.maven.checkstyle.version>2.17</plugin.maven.checkstyle.version>
-        <plugin.maven.compiler.version>3.6.1</plugin.maven.compiler.version>
-        <plugin.maven.depedency.version>3.0.0</plugin.maven.depedency.version>
+        <plugin.maven.compiler.version>3.7.0</plugin.maven.compiler.version>
+        <plugin.maven.depedency.version>3.0.1</plugin.maven.depedency.version>
         <plugin.maven.deployer.version>2.8.2</plugin.maven.deployer.version>
         <plugin.maven.duplicate.finder.version>1.0.9</plugin.maven.duplicate.finder.version>
-        <plugin.maven.enforcer.version>1.4.1</plugin.maven.enforcer.version>
-        <plugin.maven.findbugs.version>3.0.4</plugin.maven.findbugs.version>
+        <plugin.maven.findbugs.version>3.0.5</plugin.maven.findbugs.version>
         <plugin.maven.install.version>2.5.2</plugin.maven.install.version>
         <plugin.maven.jacoco.version>0.7.9</plugin.maven.jacoco.version>
         <plugin.maven.japicmp.version>0.10.0</plugin.maven.japicmp.version>
-        <plugin.maven.jar.version>2.4</plugin.maven.jar.version>
+        <plugin.maven.jar.version>3.0.2</plugin.maven.jar.version>
         <plugin.maven.java.version>1.8</plugin.maven.java.version>
         <plugin.maven.jdepend.version>2.0</plugin.maven.jdepend.version>
         <plugin.maven.jxr.version>2.5</plugin.maven.jxr.version>
         <plugin.maven.mycila-license.version>3.0</plugin.maven.mycila-license.version>
-        <plugin.maven.owasp.check>2.0.1</plugin.maven.owasp.check>
+        <plugin.maven.owasp.check>2.1.1</plugin.maven.owasp.check>
         <plugin.maven.pmd.version>3.8</plugin.maven.pmd.version>
         <plugin.maven.resources.version>3.0.2</plugin.maven.resources.version>
-        <plugin.maven.surefire.version>2.19.1</plugin.maven.surefire.version>
+        <plugin.maven.surefire.version>2.20</plugin.maven.surefire.version>
         <plugin.maven.takari.proc>proc</plugin.maven.takari.proc>
-        <plugin.maven.takari.version>1.13.0</plugin.maven.takari.version>
+        <plugin.maven.takari.version>1.13.1</plugin.maven.takari.version>
         <pmd.fail>true</pmd.fail>
         <pmd.priority>5</pmd.priority>
         <pmd.rules>/rulesets/java/pmd-level0.xml</pmd.rules>
@@ -514,11 +525,10 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${plugin.maven.jacoco.version}</version>
             </plugin>
-            <!-- plugin>
-                Bugged... boo.
+            <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-            </plugin -->
+            </plugin>
         </plugins>
     </reporting>
     <scm>
