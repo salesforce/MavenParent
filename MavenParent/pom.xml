@@ -10,16 +10,16 @@
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>
-        This project provides the best of maven as MavenParent. With this project you get:
-           takari-lifecycle, which has jdt based compiler that provides incremental recompilation, and proper APT support.
+        This project provides the best of maven easily consumable a maven parent project, called MavenParent. With this project you get:
+           takari-lifecycle, which has a jdt based compiler that provides incremental recompilation, and proper APT support.
               Just use the takari-jar packaging rather than the the default jar for all the takari goodness.
            Checkstyle and PMD checks that will work by default in eclipse with m2e-codequality.
-           OWASP vulnerability checks.
-           Easy license of BSD-3 clause license with mycila-license plugin.
-           The ability to easily enforce symantic version on a jar project with japicmp.
+           OWASP vulnerability checks of you dependencies.
+           Easy application of BSD-3 clause license to all your code with mycila-license plugin.
+           The ability to easily enforce semantic version on a jar project with japicmp.
            Prevent duplicates on your classpath with ning's duplicate-finder.
            All of the above can be configured or disabled easily with properties, just check their docs, except takari.
-           A whole slew of pretty maven reports including the above configured in the maven site.
+           A whole slew of pretty maven reports including the above are generated in the maven site.
            The ability to easily deploy to oss nexus, and publish maven generated sites back to github's sites pages.
     </description>
     <properties>

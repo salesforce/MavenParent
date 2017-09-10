@@ -21,6 +21,7 @@
     <properties>
         <dependency.locations.enabled>false</dependency.locations.enabled>
         <github.domain>github.com</github.domain>
+        <github.global.server>github</github.global.server>
         <github.owner>salesforce</github.owner>
         <github.project>MavenParent</github.project>
         <github.site.location>${project.version}/</github.site.location>
@@ -163,8 +164,6 @@
                         <artifactId>site-maven-plugin</artifactId>
                         <version>0.12</version>
                         <configuration>
-                            <server>${github.domain}</server>
-                            <host>${github.domain}</host>
                             <path>${github.site.location}</path>
                             <merge>true</merge>
                             <message>Updating maven generated documentation for ${project.version}</message>
@@ -197,6 +196,10 @@
             <timezone>-8</timezone>
         </developer>
     </developers>
+    <organization>
+       <name>Salesforce OSS</name>
+       <url>https://github.com/salesforce/</url>
+    </organization>
     <scm>
         <connection>scm:git:git:${github.domain}:${github.owner}/${github.project}.git</connection>
         <developerConnection>scm:git:git:${github.domain}:${github.owner}/${github.project}.git</developerConnection>
