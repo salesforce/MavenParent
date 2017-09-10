@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/salesforce/MavenParent.svg?branch=master)](https://travis-ci.org/salesforce/MavenParent)
 
 Base Maven projects to get most the good stuff. Checkstyle (google-like), PMD, maven web site generation, BSD-3 licenses checking and deployment to /oss.sonatype.org.
 
