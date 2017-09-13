@@ -12,7 +12,6 @@
     <description>
         This project provides the best of maven easily consumable a maven parent project, called MavenParent. With this project you get:
            takari-lifecycle, which has a jdt based compiler that provides incremental recompilation, and proper APT support.
-              Just use the takari-jar packaging rather than the the default jar for all the takari goodness.
            Checkstyle and PMD checks that will work by default in eclipse with m2e-codequality.
            OWASP vulnerability checks of you dependencies.
            Easy application of BSD-3 clause license to all your code with mycila-license plugin.
@@ -218,6 +217,65 @@
                         <sourceJar>true</sourceJar>
                         <deployAtEnd>true</deployAtEnd>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>validate</id>
+                            <goals>
+                                <goal>update-check</goal>
+                            </goals>
+                            <phase>validate</phase>
+                        </execution>
+                        <execution>
+                            <id>process-resources</id>
+                            <goals>
+                                <goal>process-resources</goal>
+                            </goals>
+                            <phase>process-resources</phase>
+                        </execution>
+                        <execution>
+                            <id>compile</id>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                            <phase>compile</phase>
+                        </execution>
+                        <execution>
+                            <id>process-classes</id>
+                            <goals>
+                                <goal>export-package</goal>
+                            </goals>
+                            <phase>process-classes</phase>
+                        </execution>
+                        <execution>
+                            <id>process-test-resources</id>
+                            <goals>
+                                <goal>process-test-resources</goal>
+                            </goals>
+                            <phase>process-test-resources</phase>
+                        </execution>
+                        <execution>
+                            <id>test-compile</id>
+                            <goals>
+                                <goal>testCompile</goal>
+                            </goals>
+                            <phase>test-compile</phase>
+                        </execution>
+                        <execution>
+                            <id>process-test-classes</id>
+                            <goals>
+                                <goal>sisu-test-index</goal>
+                            </goals>
+                            <phase>process-test-classes</phase>
+                        </execution>
+                        <execution>
+                            <id>package</id>
+                            <goals>
+                                <goal>jar</goal>
+                                <goal>addPluginArtifactMetadata</goal>
+                            </goals>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -256,6 +314,8 @@
                     <configuration>
                         <source>${plugin.maven.java.version}</source>
                         <target>${plugin.maven.java.version}</target>
+                        <skip>true</skip>
+                        <skipMain>true</skipMain>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -279,8 +339,9 @@
                             <configuration>
                                 <failFast>true</failFast>
                                 <rules>
-                                    <banDistributionManagement></banDistributionManagement>
-                                    <dependencyConvergence></dependencyConvergence>
+                                    <banDuplicatePomDependencyVersions/>
+                                    <reactorModuleConvergence/>
+                                    <dependencyConvergence/>
                                     <requireJavaVersion>
                                         <version>${plugin.maven.java.version}</version>
                                     </requireJavaVersion>
@@ -363,8 +424,12 @@
                     </executions>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${plugin.maven.resources.version}</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>

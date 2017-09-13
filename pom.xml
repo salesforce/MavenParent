@@ -6,10 +6,8 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    <description>
-       Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
-       static analysis checks, and MavenParent that can use the later as bundled jar files downloaded from maven central.
-    </description>
+    <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
+       static analysis checks, and MavenParent that can use the later as bundled jar files downloaded from maven central.</description>
     <prerequisites>
         <maven>3.5</maven>
     </prerequisites>
@@ -28,10 +26,12 @@
         <plugin.maven.clean.version>3.0.0</plugin.maven.clean.version>
         <plugin.maven.enforcer.version>3.0.0-M1</plugin.maven.enforcer.version>
         <plugin.maven.gpg.version>1.6</plugin.maven.gpg.version>
+        <plugin.maven.nexus.staging.plugin.version>1.6.8</plugin.maven.nexus.staging.plugin.version>
         <plugin.maven.reports.version>2.9</plugin.maven.reports.version>
         <plugin.maven.site.version>3.6</plugin.maven.site.version>
         <plugin.maven.sortpom.version>2.8.0</plugin.maven.sortpom.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <property.ossnexus.autorelease>true</property.ossnexus.autorelease>
     </properties>
     <build>
         <pluginManagement>
@@ -95,6 +95,18 @@
                         <attach>false</attach>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <!-- deploy artifacts if and only if all projects in a reactor build succeed. -->
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>${plugin.maven.nexus.staging.plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <serverId>sonatype-nexus-staging</serverId>
+                        <autoReleaseAfterClose>${property.ossnexus.autorelease}</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -117,6 +129,11 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <!-- deploy artifacts if and only if all projects in a reactor build succeed. -->
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
@@ -183,6 +200,10 @@
     </profiles>
     <url>https://${github.domain}/${github.owner}/${github.project}/</url>
     <inceptionYear>2017</inceptionYear>
+    <organization>
+        <name>Salesforce OSS</name>
+        <url>https://github.com/salesforce/</url>
+    </organization>
     <licenses>
         <license>
             <name>BSD-3</name>
@@ -196,10 +217,6 @@
             <timezone>-8</timezone>
         </developer>
     </developers>
-    <organization>
-       <name>Salesforce OSS</name>
-       <url>https://github.com/salesforce/</url>
-    </organization>
     <scm>
         <connection>scm:git:git:${github.domain}:${github.owner}/${github.project}.git</connection>
         <developerConnection>scm:git:git:${github.domain}:${github.owner}/${github.project}.git</developerConnection>
@@ -217,4 +234,16 @@
             </notifier>
         </notifiers>
     </ciManagement>
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
