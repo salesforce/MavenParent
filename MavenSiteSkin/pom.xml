@@ -15,8 +15,8 @@
     <properties>
         <additional-source-folder>${project.build.directory}/unpacked/resources/</additional-source-folder>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
-        <maven.fluido.skin.version>1.6</maven.fluido.skin.version>
-        <plugin.maven.sources.version>2.2.1</plugin.maven.sources.version>
+        <version.fluido.skin>1.6</version.fluido.skin>
+        <version.sources.maven.plugin>2.2.1</version.sources.maven.plugin>
     </properties>
     <dependencies>
         <dependency>
@@ -38,7 +38,6 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -59,7 +58,7 @@
                                 <artifactItem>
                                     <groupId>org.apache.maven.skins</groupId>
                                     <artifactId>maven-fluido-skin</artifactId>
-                                    <version>${maven.fluido.skin.version}</version>
+                                    <version>${version.fluido.skin}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${additional-source-folder}</outputDirectory>
@@ -72,7 +71,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>${plugin.maven.sources.version}</version>
+                <version>${version.sources.maven.plugin}</version>
                 <configuration>
                     <skipSource>true</skipSource>
                 </configuration>

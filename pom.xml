@@ -17,21 +17,21 @@
         <module>MavenParent</module>
     </modules>
     <properties>
-        <dependency.locations.enabled>false</dependency.locations.enabled>
+        <!-- dependency.locations.enabled>false</dependency.locations.enabled -->
         <github.domain>github.com</github.domain>
         <github.global.server>github</github.global.server>
         <github.owner>salesforce</github.owner>
         <github.project>MavenParent</github.project>
         <github.site.location>${project.version}/</github.site.location>
-        <plugin.maven.clean.version>3.0.0</plugin.maven.clean.version>
-        <plugin.maven.enforcer.version>3.0.0-M1</plugin.maven.enforcer.version>
-        <plugin.maven.gpg.version>1.6</plugin.maven.gpg.version>
-        <plugin.maven.nexus.staging.plugin.version>1.6.8</plugin.maven.nexus.staging.plugin.version>
-        <plugin.maven.reports.version>2.9</plugin.maven.reports.version>
-        <plugin.maven.site.version>3.6</plugin.maven.site.version>
-        <plugin.maven.sortpom.version>2.8.0</plugin.maven.sortpom.version>
+        <parameter.ossnexus.autorelease>true</parameter.ossnexus.autorelease>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <property.ossnexus.autorelease>true</property.ossnexus.autorelease>
+        <version.clean.maven.plugin>3.0.0</version.clean.maven.plugin>
+        <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
+        <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
+        <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
+        <version.reports.maven.plugin>2.9</version.reports.maven.plugin>
+        <version.site.maven.plugin>3.6</version.site.maven.plugin>
+        <version.sortpom.maven.plugin>2.8.0</version.sortpom.maven.plugin>
     </properties>
     <build>
         <pluginManagement>
@@ -39,7 +39,7 @@
                 <plugin>
                     <groupId>com.github.ekryd.sortpom</groupId>
                     <artifactId>sortpom-maven-plugin</artifactId>
-                    <version>${plugin.maven.sortpom.version}</version>
+                    <version>${version.sortpom.maven.plugin}</version>
                     <configuration>
                         <sortOrderFile>com/shankyank/pom_sort_order.xml</sortOrderFile>
                         <lineSeparator>\n</lineSeparator>
@@ -70,12 +70,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>${plugin.maven.clean.version}</version>
+                    <version>${version.clean.maven.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${plugin.maven.gpg.version}</version>
+                    <version>${version.gpg.maven.plugin}</version>
                     <executions>
                         <execution>
                             <id>sign-artifacts</id>
@@ -89,7 +89,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>${plugin.maven.site.version}</version>
+                    <version>${version.site.maven.plugin}</version>
                     <configuration>
                         <relativizeDecorationLinks>false</relativizeDecorationLinks>
                         <attach>false</attach>
@@ -99,12 +99,12 @@
                     <!-- deploy artifacts if and only if all projects in a reactor build succeed. -->
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>${plugin.maven.nexus.staging.plugin.version}</version>
+                    <version>${version.nexus.staging.maven.plugin}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                         <serverId>sonatype-nexus-staging</serverId>
-                        <autoReleaseAfterClose>${property.ossnexus.autorelease}</autoReleaseAfterClose>
+                        <autoReleaseAfterClose>${parameter.ossnexus.autorelease}</autoReleaseAfterClose>
                     </configuration>
                 </plugin>
             </plugins>
@@ -142,7 +142,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>${plugin.maven.reports.version}</version>
+                <version>${version.reports.maven.plugin}</version>
                 <configuration>
                     <linkOnly>true</linkOnly>
                 </configuration>
