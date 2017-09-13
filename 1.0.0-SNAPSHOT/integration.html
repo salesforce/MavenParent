@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20170913" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>MavenBase &#x2013; CI Management</title>
+    <title>MavenParent &#x2013; CI Management</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.6.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -27,33 +27,31 @@
 <a class="brand" href="./" >Force
 </a>
             <ul class="nav">
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li><a href="MavenSiteSkin/index.html" title="MavenSiteSkin">MavenSiteSkin</a></li>
-            <li><a href="MavenAnalysisConf/index.html" title="MavenAnalysisConf">MavenAnalysisConf</a></li>
-            <li><a href="MavenParent/index.html" title="MavenParent">MavenParent</a></li>
-        </ul>
-      </li>
-        <li class="dropdown">
+          <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project Documentation <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li class="dropdown-submenu">
 <a href="project-info.html" title="Project Information">Project Information</a>
               <ul class="dropdown-menu">
                   <li><a href="integration.html" title="CI Management">CI Management</a></li>
-                  <li><a href="dependency-convergence.html" title="Dependency Convergence">Dependency Convergence</a></li>
                   <li><a href="dependency-info.html" title="Dependency Information">Dependency Information</a></li>
                   <li><a href="distribution-management.html" title="Distribution Management">Distribution Management</a></li>
                   <li><a href="index.html" title="About">About</a></li>
                   <li><a href="issue-tracking.html" title="Issue Management">Issue Management</a></li>
                   <li><a href="license.html" title="Licenses">Licenses</a></li>
-                  <li><a href="modules.html" title="Project Modules">Project Modules</a></li>
                   <li><a href="plugin-management.html" title="Plugin Management">Plugin Management</a></li>
                   <li><a href="plugins.html" title="Plugins">Plugins</a></li>
                   <li><a href="team-list.html" title="Team">Team</a></li>
                   <li><a href="source-repository.html" title="Source Code Management">Source Code Management</a></li>
                   <li><a href="project-summary.html" title="Summary">Summary</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+<a href="project-reports.html" title="Project Reports">Project Reports</a>
+              <ul class="dropdown-menu">
+                  <li><a href="surefire-report.html" title="Surefire Report">Surefire Report</a></li>
+                  <li><a href="jdepend-report.html" title="JDepend">JDepend</a></li>
+                  <li><a href="jacoco-aggregate/index.html" title="JaCoCo Aggregate">JaCoCo Aggregate</a></li>
               </ul>
             </li>
         </ul>
@@ -65,7 +63,7 @@
     </div>
     <div class="container-fluid">
       <div id="banner">
-        <div class="pull-left"><div id="bannerLeft"><h2>MavenBase</h2>
+        <div class="pull-left"><div id="bannerLeft"><h2>MavenParent</h2>
 </div>
 </div>
         <div class="pull-right"></div>
@@ -83,22 +81,16 @@
         <div id="leftColumn" class="span2">
           <div class="well sidebar-nav">
 <ul class="nav nav-list">
-          <li class="nav-header">Modules</li>
-    <li><a href="MavenSiteSkin/index.html" title="MavenSiteSkin"><span class="none"></span>MavenSiteSkin</a>  </li>
-    <li><a href="MavenAnalysisConf/index.html" title="MavenAnalysisConf"><span class="none"></span>MavenAnalysisConf</a>  </li>
-    <li><a href="MavenParent/index.html" title="MavenParent"><span class="none"></span>MavenParent</a>  </li>
-          <li class="nav-header">Project Documentation</li>
+            <li class="nav-header">Project Documentation</li>
     <li><a href="project-info.html" title="Project Information"><span class="icon-chevron-down"></span>Project Information</a>
       <ul class="nav nav-list">
     <li class="active"><a href="#"><span class="none"></span>CI Management</a>
   </li>
-    <li><a href="dependency-convergence.html" title="Dependency Convergence"><span class="none"></span>Dependency Convergence</a>  </li>
     <li><a href="dependency-info.html" title="Dependency Information"><span class="none"></span>Dependency Information</a>  </li>
     <li><a href="distribution-management.html" title="Distribution Management"><span class="none"></span>Distribution Management</a>  </li>
     <li><a href="index.html" title="About"><span class="none"></span>About</a>  </li>
     <li><a href="issue-tracking.html" title="Issue Management"><span class="none"></span>Issue Management</a>  </li>
     <li><a href="license.html" title="Licenses"><span class="none"></span>Licenses</a>  </li>
-    <li><a href="modules.html" title="Project Modules"><span class="none"></span>Project Modules</a>  </li>
     <li><a href="plugin-management.html" title="Plugin Management"><span class="none"></span>Plugin Management</a>  </li>
     <li><a href="plugins.html" title="Plugins"><span class="none"></span>Plugins</a>  </li>
     <li><a href="team-list.html" title="Team"><span class="none"></span>Team</a>  </li>
@@ -106,6 +98,7 @@
     <li><a href="project-summary.html" title="Summary"><span class="none"></span>Summary</a>  </li>
       </ul>
   </li>
+    <li><a href="project-reports.html" title="Project Reports"><span class="icon-chevron-right"></span>Project Reports</a>  </li>
   </ul>
           <hr />
           <div id="poweredBy">
