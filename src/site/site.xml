@@ -15,7 +15,7 @@
       <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
       <topBarEnabled>true</topBarEnabled>
       <topBarIcon>
-        <name>Force</name>
+        <name>${project.groupId}</name>
         <href></href>
       </topBarIcon>
     </fluidoSkin>

@@ -478,7 +478,7 @@
                             <goals>
                                 <goal>report</goal>
                             </goals>
-                            <phase>site</phase>
+                            <phase>verify</phase>
                         </execution>
                         <execution>
                             <id>check</id>

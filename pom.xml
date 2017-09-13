@@ -8,9 +8,6 @@
     <name>${project.artifactId}</name>
     <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
        static analysis checks, and MavenParent that can use the later as bundled jar files downloaded from maven central.</description>
-    <prerequisites>
-        <maven>3.5</maven>
-    </prerequisites>
     <modules>
         <module>MavenSiteSkin</module>
         <module>MavenAnalysisConf</module>
