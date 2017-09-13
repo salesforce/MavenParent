@@ -1,8 +1,8 @@
 ### Status ###
 
 [![Build Status](https://travis-ci.org/salesforce/MavenParent.svg?branch=master)](https://travis-ci.org/salesforce/MavenParent)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e23ae73e84bc4b76b912afdeb679dc22)](https://www.codacy.com/app/rexhoffman/MavenParent?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=salesforce/MavenParent&amp;utm_campaign=Badge_Grade)
+[![Maven Site](https://img.shields.io/badge/MavenSite-1.0.0--SNAPSHOT-green.svg)](https://salesforce.github.com/MavenParent/1.0.0-SNAPSHOT/index.html)
 
 Base Maven projects to get most the good stuff. Checkstyle (google-like), PMD, maven web site generation, BSD-3 licenses checking and deployment to /oss.sonatype.org.
 
@@ -49,7 +49,3 @@ When releasing a new version of this project:
 * mvn version:set
 * update the version of MavenAnalysisConf in ForceParent pom file
 * update src/site/site.xml version of MavenAnalysisConf 
-
-
-Generated Site:  https://salesforce.github.com/MavenParent/1.0.0-SNAPSHOT/index.html
-
