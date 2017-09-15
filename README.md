@@ -8,15 +8,13 @@ Base Maven projects to get most the good stuff. Checkstyle (google-like), PMD, m
 
 Cloned from https://github.com/rexhoffman/MavenBase with some renaming and cleanup
 
-Not Released yet, will be is 1.0.0
-
 To use add to your maven project's pom.xml file:
 
 ```
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenParent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 ```
 
@@ -47,5 +45,5 @@ for incremental build and proper APT support in eclipse, so please use ```<packa
 When releasing a new version of this project:
 
 * mvn version:set
-* update the version of MavenAnalysisConf in ForceParent pom file
+* update the version of MavenAnalysisConf in MavenParent pom file
 * update src/site/site.xml version of MavenAnalysisConf 
