@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
     <artifactId>MavenParent</artifactId>
     <packaging>pom</packaging>
@@ -20,7 +20,7 @@
            A whole slew of pretty maven reports including the above are generated in the maven site.
            The ability to easily deploy to oss nexus, and publish maven generated sites back to github's sites pages.</description>
     <properties>
-        <maven.analysis.configuration>1.0.1</maven.analysis.configuration>
+        <maven.analysis.configuration>1.0.2-SNAPSHOT</maven.analysis.configuration>
         <outputEncoding>UTF-8</outputEncoding>
         <parameter.checkstyle.xml>checkstyle.xml</parameter.checkstyle.xml>
         <parameter.disable.semantic.versioning>false</parameter.disable.semantic.versioning>
