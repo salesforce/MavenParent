@@ -25,6 +25,7 @@
         <version.clean.maven.plugin>3.0.0</version.clean.maven.plugin>
         <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
+        <version.javadoc.maven.plugin>3.0.0-M1</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
         <version.reports.maven.plugin>2.9</version.reports.maven.plugin>
         <version.site.maven.plugin>3.6</version.site.maven.plugin>
@@ -80,6 +81,19 @@
                                 <goal>sign</goal>
                             </goals>
                             <phase>verify</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${version.javadoc.maven.plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
@@ -160,6 +174,11 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                    <!-- will attempt to have checkstyle catch all potential javadoc errors. -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
