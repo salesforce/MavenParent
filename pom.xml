@@ -8,6 +8,10 @@
     <name>${project.artifactId}</name>
     <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
        static analysis checks, and MavenParent that can use the later as bundled jar files downloaded from maven central.</description>
+    <prerequisites>
+        <!-- minimum version for plugins to function correctly -->
+        <maven>3.1.0</maven>
+    </prerequisites>
     <modules>
         <module>MavenSiteSkin</module>
         <module>MavenAnalysisConf</module>
@@ -16,16 +20,24 @@
     <properties>
         <!-- dependency.locations.enabled>false</dependency.locations.enabled -->
         <github.domain>github.com</github.domain>
-        <github.global.server>github</github.global.server>
         <github.owner>salesforce</github.owner>
         <github.project>MavenParent</github.project>
+        <!-- github.site.host>${github.domain}</github.site.host -->
         <github.site.location>${project.version}/</github.site.location>
-        <parameter.ossnexus.autorelease>true</parameter.ossnexus.autorelease>
+        <github.site.server>${github.domain}</github.site.server>
+        <parameter.distribution.autorelease>true</parameter.distribution.autorelease>
+        <parameter.distribution.nexus>oss.sonatype.org</parameter.distribution.nexus>
+        <parameter.distribution.releases>https://oss.sonatype.org/service/local/staging/deploy/maven2/</parameter.distribution.releases>
+        <parameter.distribution.skipstaging>false</parameter.distribution.skipstaging>
+        <parameter.distribution.snapshots>https://oss.sonatype.org/content/repositories/snapshots/</parameter.distribution.snapshots>
+        <parameter.github.site.deploy.skip>false</parameter.github.site.deploy.skip>
+        <parameter.license>BSD-3</parameter.license>
+        <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.clean.maven.plugin>3.0.0</version.clean.maven.plugin>
         <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
-        <version.javadoc.maven.plugin>3.0.0-M1</version.javadoc.maven.plugin>
+        <version.javadoc.maven.plugin>3.0.0</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
         <version.reports.maven.plugin>2.9</version.reports.maven.plugin>
         <version.site.maven.plugin>3.6</version.site.maven.plugin>
@@ -62,6 +74,25 @@
                                 <goal>verify</goal>
                             </goals>
                             <phase>verify</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>0.12</version>
+                    <configuration>
+                        <path>${github.site.location}</path>
+                        <merge>true</merge>
+                        <message>Updating maven generated documentation for ${project.version}</message>
+                        <skip>${parameter.github.site.deploy.skip}</skip>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>site</goal>
+                            </goals>
+                            <phase>site-deploy</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -104,6 +135,7 @@
                     <configuration>
                         <relativizeDecorationLinks>false</relativizeDecorationLinks>
                         <attach>false</attach>
+                        <skipDeploy>${parameter.standard.site.deploy.skip}</skipDeploy>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -113,9 +145,10 @@
                     <version>${version.nexus.staging.maven.plugin}</version>
                     <extensions>true</extensions>
                     <configuration>
-                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                        <serverId>sonatype-nexus-staging</serverId>
-                        <autoReleaseAfterClose>${parameter.ossnexus.autorelease}</autoReleaseAfterClose>
+                        <skipStaging>${parameter.distribution.skipstaging}</skipStaging>
+                        <!-- nexusUrl>https://oss.sonatype.org/</nexusUrl-->
+                        <serverId>${parameter.distribution.nexus}</serverId>
+                        <autoReleaseAfterClose>${parameter.distribition.autorelease}</autoReleaseAfterClose>
                     </configuration>
                 </plugin>
             </plugins>
@@ -124,6 +157,11 @@
             <plugin>
                 <groupId>com.github.ekryd.sortpom</groupId>
                 <artifactId>sortpom-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <!-- default to deploying to github site with github plugin. -->
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -183,36 +221,6 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>site-deploy</id>
-            <activation>
-                <property>
-                    <name>deploysite</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.github</groupId>
-                        <artifactId>site-maven-plugin</artifactId>
-                        <version>0.12</version>
-                        <configuration>
-                            <path>${github.site.location}</path>
-                            <merge>true</merge>
-                            <message>Updating maven generated documentation for ${project.version}</message>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>site</goal>
-                                </goals>
-                                <phase>site</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
     <url>https://${github.domain}/${github.owner}/${github.project}/</url>
     <inceptionYear>2017</inceptionYear>
@@ -222,8 +230,7 @@
     </organization>
     <licenses>
         <license>
-            <name>BSD-3</name>
-            <url>https://opensource.org/licenses/BSD-3-Clause</url>
+            <name>${parameter.license}</name>
         </license>
     </licenses>
     <developers>
@@ -252,14 +259,19 @@
     </ciManagement>
     <distributionManagement>
         <repository>
-            <id>sonatype-nexus-staging</id>
+            <id>${parameter.distribution.nexus}</id>
             <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>${parameter.distribution.releases}</url>
         </repository>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
+            <id>${parameter.distribution.nexus}</id>
             <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <url>${parameter.distribution.snapshots}</url>
         </snapshotRepository>
+        <site>
+            <id>${github.domain}</id>
+            <name>${github.domain}</name>
+            <url>scm:git:ssh://git@${github.domain}/${github.owner}/${github.project}.git</url>
+        </site>
     </distributionManagement>
 </project>
