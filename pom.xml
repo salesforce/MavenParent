@@ -35,7 +35,6 @@
         <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.clean.maven.plugin>3.0.0</version.clean.maven.plugin>
-        <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
         <version.javadoc.maven.plugin>3.0.0</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>

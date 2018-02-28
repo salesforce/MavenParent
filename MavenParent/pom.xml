@@ -28,6 +28,11 @@
         <outputEncoding>UTF-8</outputEncoding>
         <parameter.checkstyle.xml>checkstyle.xml</parameter.checkstyle.xml>
         <parameter.disable.semantic.versioning>false</parameter.disable.semantic.versioning>
+        <!-- execution of maven must occur within java version below or greater -->
+        <parameter.enforcer.min.java.version>1.8.0</parameter.enforcer.min.java.version>
+        <parameter.enforcer.min.maven.version>3.5.0</parameter.enforcer.min.maven.version>
+        <!-- example for following parameter: org.apache.maven.plugins:maven-enforcer-plugin,org.apache.maven.plugins:maven-idea-plugin -->
+        <parameter.enforcer.unchecked.plugins.list></parameter.enforcer.unchecked.plugins.list>
         <parameter.jacoco.branch.coverage>0.50</parameter.jacoco.branch.coverage>
         <parameter.jacoco.instruction.coverage>0.50</parameter.jacoco.instruction.coverage>
         <parameter.japicmp.ignoredpackage>*.internal*</parameter.japicmp.ignoredpackage>
@@ -44,6 +49,7 @@
         <version.depedency.maven.plugin>3.0.1</version.depedency.maven.plugin>
         <version.deployer.maven.plugin>2.8.2</version.deployer.maven.plugin>
         <version.duplicate.finder.maven.plugin>1.0.9</version.duplicate.finder.maven.plugin>
+        <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
         <version.findbugs.maven.plugin>3.0.5</version.findbugs.maven.plugin>
         <version.install.maven.plugin>2.5.2</version.install.maven.plugin>
         <version.jacoco.maven.plugin>0.7.9</version.jacoco.maven.plugin>
@@ -370,10 +376,17 @@
                                         <message>Best Practice is to always define plugin versions!</message>
                                         <banLatest>true</banLatest>
                                         <banSnapshots>true</banSnapshots>
+                                        <unCheckedPluginList>${parameter.enforcer.unchecked.plugins.list}</unCheckedPluginList>
                                     </requirePluginVersions>
                                     <requireReleaseDeps>
                                         <onlyWhenRelease>true</onlyWhenRelease>
                                     </requireReleaseDeps>
+                                    <requireMavenVersion>
+                                        <version>[${parameter.enforcer.min.maven.version},)</version>
+                                    </requireMavenVersion>
+                                    <requireJavaVersion>
+                                        <version>[${parameter.enforcer.min.java.version},)</version>
+                                    </requireJavaVersion>
                                 </rules>
                             </configuration>
                         </execution>

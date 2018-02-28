@@ -90,6 +90,15 @@ for incremental build and proper APT support in eclipse.
     <parameter.distribution.skipstaging>
     <parameter.distribution.snapshots>
     
+    <!-- a comma separated list of groupId:artifactId's of plugins you don't mind having as snapshots -- best used in development of plugins only -->
+    <parameter.enforcer.unchecked.plugins.list>
+    
+    <!-- minimum version of java to run maven, default 1.8.0 -->
+    <parameter.enforcer.min.java.version>
+    
+    <!-- minimum version of maven, to run this project default 3.5.0 -->
+    <parameter.enforcer.min.maven.version> 
+    
     <!-- can be used to turn off github site deployment -->
     <parameter.github.site.deploy.skip>
     
