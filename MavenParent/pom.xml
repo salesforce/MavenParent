@@ -39,30 +39,33 @@
         <parameter.java.version>1.8</parameter.java.version>
         <parameter.license.regex>${license.regex.BSD-3}</parameter.license.regex>
         <parameter.owasp.failOnCVSSLevelOrGreater>8</parameter.owasp.failOnCVSSLevelOrGreater>
+        <parameter.pmd.analysisCache>true</parameter.pmd.analysisCache>
         <parameter.pmd.fail>true</parameter.pmd.fail>
         <parameter.pmd.priority>5</parameter.pmd.priority>
         <parameter.pmd.rules>/rulesets/java/pmd-level0.xml</parameter.pmd.rules>
         <parameter.takari.proc>proc</parameter.takari.proc>
+        <!-- max m2e version of checkstyle supported today -->
         <version.checkstyle>8.7</version.checkstyle>
         <version.checkstyle.maven.plugin>2.17</version.checkstyle.maven.plugin>
-        <version.compiler.maven.plugin>3.7.0</version.compiler.maven.plugin>
+        <version.compiler.maven.plugin>3.7.0-jboss-1</version.compiler.maven.plugin>
         <version.depedency.maven.plugin>3.0.1</version.depedency.maven.plugin>
         <version.deployer.maven.plugin>2.8.2</version.deployer.maven.plugin>
         <version.duplicate.finder.maven.plugin>1.0.9</version.duplicate.finder.maven.plugin>
         <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
         <version.findbugs.maven.plugin>3.0.5</version.findbugs.maven.plugin>
         <version.install.maven.plugin>2.5.2</version.install.maven.plugin>
-        <version.jacoco.maven.plugin>0.7.9</version.jacoco.maven.plugin>
-        <version.japicmp.maven.plugin>0.11.0</version.japicmp.maven.plugin>
+        <version.jacoco.maven.plugin>0.8.1</version.jacoco.maven.plugin>
+        <version.japicmp.maven.plugin>0.11.1</version.japicmp.maven.plugin>
         <version.jar.maven.plugin>3.0.2</version.jar.maven.plugin>
         <version.jdepend.maven.plugin>2.0</version.jdepend.maven.plugin>
         <version.jxr.maven.plugin>2.5</version.jxr.maven.plugin>
         <version.mycila-license.maven.plugin>3.0</version.mycila-license.maven.plugin>
-        <version.owasp.check.maven.plugin>3.0.2</version.owasp.check.maven.plugin>
+        <version.owasp.check.maven.plugin>3.1.2</version.owasp.check.maven.plugin>
+        <!-- max m2e version of pmd supported today -->
         <version.pmd.maven.plugin>3.8</version.pmd.maven.plugin>
         <version.resources.maven.plugin>3.0.2</version.resources.maven.plugin>
-        <version.surefire.maven.plugin>2.20.1</version.surefire.maven.plugin>
-        <version.takari.maven.plugin>1.13.3</version.takari.maven.plugin>
+        <version.surefire.maven.plugin>2.21.0</version.surefire.maven.plugin>
+        <version.takari.maven.plugin>1.13.4</version.takari.maven.plugin>
     </properties>
     <build>
         <pluginManagement>
@@ -72,9 +75,11 @@
                     <artifactId>japicmp-maven-plugin</artifactId>
                     <version>${version.japicmp.maven.plugin}</version>
                     <configuration>
+                        <!-- ignoreMissingOldVersion>true</ignoreMissingOldVersion -->
                         <skip>${parameter.disable.semantic.versioning}</skip>
                         <parameter>
                             <breakBuildBasedOnSemanticVersioning>true</breakBuildBasedOnSemanticVersioning>
+                            <breakBuildBasedOnSemanticVersioningForMajorVersionZero>false</breakBuildBasedOnSemanticVersioningForMajorVersionZero>
                         </parameter>
                         <parameter>
                             <excludes>
@@ -438,6 +443,7 @@
                         <failOnViolation>${parameter.pmd.fail}</failOnViolation>
                         <failurePriority>${parameter.pmd.priority}</failurePriority>
                         <includeTests>true</includeTests>
+                        <analysisCache>${parameter.pmd.analysisCache}</analysisCache>
                         <targetJdk>${parameter.java.version}</targetJdk>
                     </configuration>
                     <dependencies>

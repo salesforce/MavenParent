@@ -16,13 +16,13 @@
         <additional-source-folder>${project.build.directory}/unpacked/resources/</additional-source-folder>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
         <version.fluido.skin>1.6</version.fluido.skin>
-        <version.sources.maven.plugin>2.2.1</version.sources.maven.plugin>
+        <version.sources.maven.plugin>3.0.1</version.sources.maven.plugin>
     </properties>
     <dependencies>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>2.6</version>
             <scope>test</scope>
         </dependency>
         <!-- so generating the image css this way is a hack, a terrible hack as it works incidentally, not in a 

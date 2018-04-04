@@ -39,7 +39,7 @@
         <version.javadoc.maven.plugin>3.0.0</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
         <version.reports.maven.plugin>2.9</version.reports.maven.plugin>
-        <version.site.maven.plugin>3.6</version.site.maven.plugin>
+        <version.site.maven.plugin>3.7</version.site.maven.plugin>
         <version.sortpom.maven.plugin>2.8.0</version.sortpom.maven.plugin>
     </properties>
     <build>
