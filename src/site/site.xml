@@ -6,7 +6,7 @@
   <skin>
     <groupId>com.salesforce.maven</groupId>
     <artifactId>MavenSiteSkin</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
   </skin>
   <custom>
     <fluidoSkin>
