@@ -23,7 +23,7 @@
     <description>Non-test classes may not have more than 4 duplicate literals, unless the literal is for an annotation.</description>
     <properties>
       <property name="skipAnnotations" value="true"/>
-      <property name="violationSuppressXPath" value="./ancestor::ClassOrInterfaceDeclaration[ends-with(@Image, 'Test') or ends-with(@Image, 'Tests')]" />
+      <property name="violationSuppressXPath" value="./ancestor::TypeDeclaration[count(//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]>1)]" />
     </properties>
   </rule>
   <rule ref="rulesets/java/typeresolution.xml">
@@ -34,7 +34,7 @@
     <properties>
       <!-- doesn't effect parameterized constructors, like maven's -->
       <!-- property name="IgnoreJUnitCompletely" value="true"/-->
-      <property name="violationSuppressXPath" value="./ancestor::ClassOrInterfaceDeclaration[ends-with(@Image, 'Test') or ends-with(@Image, 'Tests')]" />
+      <property name="violationSuppressXPath" value="./ancestor::TypeDeclaration[count(//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]>1)]" />
     </properties>
   </rule>
 </ruleset>
