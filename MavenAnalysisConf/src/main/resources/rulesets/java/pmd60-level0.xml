@@ -43,7 +43,12 @@
 
     <rule ref="category/java/codestyle.xml/DontImportJavaLang"/>
     <rule ref="category/java/codestyle.xml/DuplicateImports"/>
-    <rule ref="category/java/codestyle.xml/TooManyStaticImports"/>
+    <rule ref="category/java/codestyle.xml/TooManyStaticImports">
+	  <description>Non-test classes may not have more than 4 static imports.</description>
+	  <properties>
+	    <property name="violationSuppressXPath" value="./ancestor::TypeDeclaration//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]" />
+	  </properties>
+    </rule>
     <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>
   <!-- END: replacement for  rulesets/java/imports.xml -->
   

@@ -14,7 +14,16 @@
       <property name="allowCommentedBlocks" value="true" />
     </properties>
   </rule>
-  <rule ref="rulesets/java/imports.xml" />
+  <rule ref="rulesets/java/imports.xml">
+    <exclude name="TooManyStaticImports"/>
+  </rule>
+  <rule ref="rulesets/java/imports.xml/TooManyStaticImports">
+    <description>Non-test classes may not have more than 4 static imports.</description>
+    <properties>
+      <property name="violationSuppressXPath" value="./TypeDeclaration//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]" />
+    </properties>
+  </rule>
+  
   <rule ref="rulesets/java/finalizers.xml" />
   <rule ref="rulesets/java/strings.xml">
      <exclude name="AvoidDuplicateLiterals" />
