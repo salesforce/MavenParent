@@ -8,11 +8,9 @@
     </parent>
     <artifactId>MavenAnalysisConf</artifactId>
     <name>${project.artifactId}</name>
-    <description>
-       Provides a Checkstyle and PMD configuration.  The PMD configuration is meant to allow for future hierarchical levels to be defined,
+    <description>Provides a Checkstyle and PMD configuration.  The PMD configuration is meant to allow for future hierarchical levels to be defined,
        so that projects can choose which level to adhere.  Checkstyle is not as flexible.  I have provided a check that looks
-       for a BSD 3 clause header in your project assuming that will be your default, especially in the https://github.com/salesforce/ repositories.  
-    </description>
+       for a BSD 3 clause header in your project assuming that will be your default, especially in the https://github.com/salesforce/ repositories.</description>
     <properties>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
     </properties>
@@ -25,6 +23,27 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.9.0</version>
+                <configuration>
+                    <skipPmdError>false</skipPmdError>
+                    <rulesets>
+                        <ruleset>${basedir}/src/main/resources/rulesets/java/pmd-level0.xml</ruleset>
+                        <ruleset>${basedir}/src/main/resources/rulesets/java/pmd60-level0.xml</ruleset>
+                    </rulesets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
