@@ -65,7 +65,7 @@
         <version.pmd.maven.plugin>3.8</version.pmd.maven.plugin>
         <version.resources.maven.plugin>3.0.2</version.resources.maven.plugin>
         <version.surefire.maven.plugin>2.21.0</version.surefire.maven.plugin>
-        <version.takari.maven.plugin>1.13.4</version.takari.maven.plugin>
+        <version.takari.maven.plugin>1.13.5</version.takari.maven.plugin>
     </properties>
     <build>
         <pluginManagement>
