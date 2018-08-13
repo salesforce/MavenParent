@@ -106,7 +106,7 @@
                         <header>com/mycila/maven/plugin/license/templates/${parameter.license}.txt</header>
                         <encoding>utf8</encoding>
                         <properties>
-                            <owner>Saleforce.com, Inc</owner>
+                            <owner>Salesforce.com, Inc</owner>
                             <email>rex.hoffman@salesforce.com</email>
                         </properties>
                         <excludes>
