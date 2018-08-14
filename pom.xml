@@ -33,6 +33,7 @@
         <parameter.github.site.deploy.skip>false</parameter.github.site.deploy.skip>
         <parameter.license>BSD-3</parameter.license>
         <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
+        <parameter.standard.sources.deploy.skip>false</parameter.standard.sources.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.clean.maven.plugin>3.0.0</version.clean.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
@@ -136,6 +137,22 @@
                         <attach>false</attach>
                         <skipDeploy>${parameter.standard.site.deploy.skip}</skipDeploy>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${version.sources.maven.plugin}</version>
+                    <configuration>
+                        <skipSource>${parameter.standard.sources.deploy.skip}</skipSource>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <!-- deploy artifacts if and only if all projects in a reactor build succeed. -->
