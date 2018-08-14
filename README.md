@@ -194,7 +194,7 @@ If you want to use gpg.signatures, just call with -Dgpg.passphrase= and the arti
       <password><!-- REPLACE WITH TOKEN FROM https://oss.sonatype.org/ --></password>
     </server>
 
-## When deploying a maven generated site to git.soma:
+## When deploying a maven generated site to github.com:
 
 ```
 mvn site site-deploy
