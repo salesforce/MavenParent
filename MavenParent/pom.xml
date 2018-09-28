@@ -142,99 +142,6 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.basepom.maven</groupId>
-                    <artifactId>duplicate-finder-maven-plugin</artifactId>
-                    <version>${version.duplicate.finder.maven.plugin}</version>
-                    <configuration>
-                        <failBuildInCaseOfDifferentContentConflict>true</failBuildInCaseOfDifferentContentConflict>
-                        <ignoredResources combine.children="append">
-                            <ignoredResource>about.html</ignoredResource>
-                            <ignoredResource>META-INF/*</ignoredResource>
-                            <ignoredResource>plugin.properties</ignoredResource>
-                            <ignoredResource>about_files/.*</ignoredResource>
-                            <ignoredResource>about_files/.*</ignoredResource>
-                            <ignoredResource>META-INF/takari/export-package</ignoredResource>
-                        </ignoredResources>
-                        <exceptions combine.children="append">
-                            <exception>
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>jaxen</groupId>
-                                        <artifactId>jaxen</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xerces</groupId>
-                                        <artifactId>xmlParserAPIs</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xml-apis</groupId>
-                                        <artifactId>xml-apis</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xmlrpc</groupId>
-                                        <artifactId>xmlrpc</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>stax</groupId>
-                                        <artifactId>stax-api</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xml-apis</groupId>
-                                        <artifactId>xml-apis</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xalan</groupId>
-                                        <artifactId>xalan</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <classes>
-                                    <class>org.apache.xmlcommons.Version</class>
-                                </classes>
-                                <packages>
-                                    <package>org.w3c.dom.ls</package>
-                                    <package>javax.xml</package>
-                                    <package>org.w3c.dom</package>
-                                    <package>org.xml.sax</package>
-                                    <package>org.w3c.dom.xpath</package>
-                                </packages>
-                            </exception>
-                            <exception>
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>aopalliance</groupId>
-                                        <artifactId>aopalliance</artifactId>
-                                        <version>[1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>org.springframework</groupId>
-                                        <artifactId>spring-aop</artifactId>
-                                        <version>[4.3,)</version>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <packages>
-                                    <package>org.aopalliance.aop</package>
-                                    <package>org.aopalliance.intercept</package>
-                                </packages>
-                            </exception>
-                        </exceptions>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <phase>verify</phase>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
                     <groupId>io.takari.maven.plugins</groupId>
                     <artifactId>takari-lifecycle-plugin</artifactId>
                     <version>${version.takari.maven.plugin}</version>
@@ -498,6 +405,99 @@
                     </executions>
                 </plugin>
                 <plugin>
+                    <groupId>org.basepom.maven</groupId>
+                    <artifactId>duplicate-finder-maven-plugin</artifactId>
+                    <version>${version.duplicate.finder.maven.plugin}</version>
+                    <configuration>
+                        <failBuildInCaseOfDifferentContentConflict>true</failBuildInCaseOfDifferentContentConflict>
+                        <ignoredResources combine.children="append">
+                            <ignoredResource>about.html</ignoredResource>
+                            <ignoredResource>META-INF/*</ignoredResource>
+                            <ignoredResource>plugin.properties</ignoredResource>
+                            <ignoredResource>about_files/.*</ignoredResource>
+                            <ignoredResource>about_files/.*</ignoredResource>
+                            <ignoredResource>META-INF/takari/export-package</ignoredResource>
+                        </ignoredResources>
+                        <exceptions combine.children="append">
+                            <exception>
+                                <conflictingDependencies>
+                                    <dependency>
+                                        <groupId>jaxen</groupId>
+                                        <artifactId>jaxen</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xerces</groupId>
+                                        <artifactId>xmlParserAPIs</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xml-apis</groupId>
+                                        <artifactId>xml-apis</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xmlrpc</groupId>
+                                        <artifactId>xmlrpc</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>stax</groupId>
+                                        <artifactId>stax-api</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xml-apis</groupId>
+                                        <artifactId>xml-apis</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xalan</groupId>
+                                        <artifactId>xalan</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                </conflictingDependencies>
+                                <classes>
+                                    <class>org.apache.xmlcommons.Version</class>
+                                </classes>
+                                <packages>
+                                    <package>org.w3c.dom.ls</package>
+                                    <package>javax.xml</package>
+                                    <package>org.w3c.dom</package>
+                                    <package>org.xml.sax</package>
+                                    <package>org.w3c.dom.xpath</package>
+                                </packages>
+                            </exception>
+                            <exception>
+                                <conflictingDependencies>
+                                    <dependency>
+                                        <groupId>aopalliance</groupId>
+                                        <artifactId>aopalliance</artifactId>
+                                        <version>[1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.springframework</groupId>
+                                        <artifactId>spring-aop</artifactId>
+                                        <version>[4.3,)</version>
+                                    </dependency>
+                                </conflictingDependencies>
+                                <packages>
+                                    <package>org.aopalliance.aop</package>
+                                    <package>org.aopalliance.intercept</package>
+                                </packages>
+                            </exception>
+                        </exceptions>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                            <phase>verify</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <!-- use findbugs until https://github.com/m2e-code-quality/m2e-code-quality/pull/113/commits/014be4075e75575e0d95f6c900ffa0e317444281 is merged for m2e support -->
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
@@ -576,10 +576,6 @@
                 <artifactId>license-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.basepom.maven</groupId>
-                <artifactId>duplicate-finder-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>io.takari.maven.plugins</groupId>
                 <artifactId>takari-lifecycle-plugin</artifactId>
             </plugin>
@@ -591,6 +587,10 @@
             </plugin>
             <plugin>
                 <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.basepom.maven</groupId>
+                <artifactId>duplicate-finder-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
