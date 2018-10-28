@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.salesforce.maven</groupId>
     <artifactId>MavenBase</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
