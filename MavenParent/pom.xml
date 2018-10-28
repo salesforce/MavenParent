@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>1.0.6-SNAPSHOT</version>
+        <version>1.0.6</version>
     </parent>
     <artifactId>MavenParent</artifactId>
     <packaging>pom</packaging>
@@ -15,7 +15,7 @@
            OWASP vulnerability checks of you dependencies.
            Easy application of BSD-3 clause license to all your code with mycila-license plugin.
            The ability to easily enforce semantic version on a jar project with japicmp.
-           Prevent duplicates on your classpath with ning's duplicate-finder.
+           Prevent duplicates on your classpath with basepom's duplicate-finder.
            All of the above can be configured or disabled easily with properties, just check their docs, except takari.
            A whole slew of pretty maven reports including the above are generated in the maven site.
            The ability to easily deploy to oss nexus, and publish maven generated sites back to github's sites pages.</description>
@@ -24,7 +24,7 @@
         <license.regex.BSD-3>\A/\*$\n^ \* Copyright .?. \d\d\d\d, [^$]*$\n \* All rights reserved.$\n^ \*$\n^ \* Redistribution and use in source and binary forms, with or without$\n^ \* modification, are permitted provided that the following conditions are met\:$\n^ \*     \* Redistributions of source code must retain the above copyright$\n^ \*       notice, this list of conditions and the following disclaimer.$\n^ \*     \* Redistributions in binary form must reproduce the above copyright$\n^ \*       notice, this list of conditions and the following disclaimer in the$\n^ \*       documentation and\/or other materials provided with the distribution.$\n^ \*     \* Neither the name of the &lt;organization&gt; nor the$\n^ \*       names of its contributors may be used to endorse or promote products$\n^ \*       derived from this software without specific prior written permission.$\n^ \*$\n^ \* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND$\n^ \* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED$\n^ \* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE$\n^ \* DISCLAIMED. IN NO EVENT SHALL &lt;COPYRIGHT HOLDER&gt; BE LIABLE FOR ANY$\n^ \* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES$\n^ \* \(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;$\n^ \* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION\) HOWEVER CAUSED AND$\n^ \* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT$\n^ \* \(INCLUDING NEGLIGENCE OR OTHERWISE\) ARISING IN ANY WAY OUT OF THE USE OF THIS$\n^ \* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.$\n^ \*/$\n^</license.regex.BSD-3>
         <license.regex.CONFIDENTIAL><![CDATA[\A/\*$\n^ \* Copyright .?. \d\d\d\d, [^$]*$\n \* All rights reserved.$\n^ \*/$\n^]]></license.regex.CONFIDENTIAL>
         <license.regex.MIT>\A/\*$\n^ \* The MIT License$$\n^ \* Copyright .?. \d\d\d\d [^$]*$\n^ \*$\n^ \* Permission is hereby granted, free of charge, to any person obtaining a copy$\n^ \* of this software and associated documentation files \(the "Software"\), to deal$\n^ \* in the Software without restriction, including without limitation the rights$\n^ \* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell$\n^ \* copies of the Software, and to permit persons to whom the Software is$\n^ \* furnished to do so, subject to the following conditions\:$\n^ \*$\n^ \* The above copyright notice and this permission notice shall be included in$\n^ \* all copies or substantial portions of the Software.$\n^ \*$\n^ \* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR$\n^ \* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,$\n^ \* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE$\n^ \* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER$\n^ \* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,$\n^ \* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN$\n^ \* THE SOFTWARE.$\n^ \*/$\n^</license.regex.MIT>
-        <maven.analysis.configuration>1.0.6-SNAPSHOT</maven.analysis.configuration>
+        <maven.analysis.configuration>1.0.6</maven.analysis.configuration>
         <outputEncoding>UTF-8</outputEncoding>
         <parameter.checkstyle.xml>checkstyle.xml</parameter.checkstyle.xml>
         <parameter.disable.semantic.versioning>false</parameter.disable.semantic.versioning>
@@ -45,27 +45,27 @@
         <parameter.pmd.rules>/rulesets/java/pmd-level0.xml</parameter.pmd.rules>
         <parameter.takari.proc>proc</parameter.takari.proc>
         <!-- max m2e version of checkstyle supported today -->
-        <version.checkstyle>8.7</version.checkstyle>
-        <version.checkstyle.maven.plugin>2.17</version.checkstyle.maven.plugin>
-        <version.compiler.maven.plugin>3.7.0</version.compiler.maven.plugin>
-        <version.depedency.maven.plugin>3.0.1</version.depedency.maven.plugin>
-        <version.deployer.maven.plugin>2.8.2</version.deployer.maven.plugin>
-        <version.duplicate.finder.maven.plugin>1.0.9</version.duplicate.finder.maven.plugin>
-        <version.enforcer.maven.plugin>3.0.0-M1</version.enforcer.maven.plugin>
-        <version.findbugs.maven.plugin>3.0.5</version.findbugs.maven.plugin>
-        <version.install.maven.plugin>2.5.2</version.install.maven.plugin>
-        <version.jacoco.maven.plugin>0.8.1</version.jacoco.maven.plugin>
-        <version.japicmp.maven.plugin>0.11.1</version.japicmp.maven.plugin>
-        <version.jar.maven.plugin>3.0.2</version.jar.maven.plugin>
+        <version.checkstyle>8.14</version.checkstyle>
+        <version.checkstyle.maven.plugin>3.0.0</version.checkstyle.maven.plugin>
+        <version.compiler.maven.plugin>3.8.0</version.compiler.maven.plugin>
+        <version.depedency.maven.plugin>3.1.1</version.depedency.maven.plugin>
+        <version.deployer.maven.plugin>3.0.0-M1</version.deployer.maven.plugin>
+        <version.duplicate.finder.maven.plugin>1.3.0</version.duplicate.finder.maven.plugin>
+        <version.enforcer.maven.plugin>3.0.0-M2</version.enforcer.maven.plugin>
+        <version.install.maven.plugin>3.0.0-M1</version.install.maven.plugin>
+        <version.jacoco.maven.plugin>0.8.2</version.jacoco.maven.plugin>
+        <version.japicmp.maven.plugin>0.13.0</version.japicmp.maven.plugin>
+        <version.jar.maven.plugin>3.1.0</version.jar.maven.plugin>
         <version.jdepend.maven.plugin>2.0</version.jdepend.maven.plugin>
-        <version.jxr.maven.plugin>2.5</version.jxr.maven.plugin>
+        <version.jxr.maven.plugin>3.0.0</version.jxr.maven.plugin>
         <version.mycila-license.maven.plugin>3.0</version.mycila-license.maven.plugin>
-        <version.owasp.check.maven.plugin>3.1.2</version.owasp.check.maven.plugin>
+        <version.owasp.check.maven.plugin>3.3.3</version.owasp.check.maven.plugin>
         <!-- max m2e version of pmd supported today -->
-        <version.pmd.maven.plugin>3.8</version.pmd.maven.plugin>
-        <version.resources.maven.plugin>3.0.2</version.resources.maven.plugin>
-        <version.surefire.maven.plugin>2.21.0</version.surefire.maven.plugin>
-        <version.takari.maven.plugin>1.13.5</version.takari.maven.plugin>
+        <version.pmd.maven.plugin>3.11.0</version.pmd.maven.plugin>
+        <version.resources.maven.plugin>3.1.0</version.resources.maven.plugin>
+        <version.spotbugs.maven.plugin>3.1.7</version.spotbugs.maven.plugin>
+        <version.surefire.maven.plugin>2.22.1</version.surefire.maven.plugin>
+        <version.takari.maven.plugin>1.13.8</version.takari.maven.plugin>
     </properties>
     <build>
         <pluginManagement>
@@ -96,6 +96,11 @@
                             <phase>verify</phase>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${version.spotbugs.maven.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.mycila</groupId>
@@ -138,99 +143,6 @@
                             <goals>
                                 <goal>check</goal>
                             </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>com.ning.maven.plugins</groupId>
-                    <artifactId>maven-duplicate-finder-plugin</artifactId>
-                    <version>${version.duplicate.finder.maven.plugin}</version>
-                    <configuration>
-                        <failBuildInCaseOfDifferentContentConflict>true</failBuildInCaseOfDifferentContentConflict>
-                        <ignoredResources combine.children="append">
-                            <ignoredResource>about.html</ignoredResource>
-                            <ignoredResource>META-INF/*</ignoredResource>
-                            <ignoredResource>plugin.properties</ignoredResource>
-                            <ignoredResource>about_files/.*</ignoredResource>
-                            <ignoredResource>about_files/.*</ignoredResource>
-                            <ignoredResource>META-INF/takari/export-package</ignoredResource>
-                        </ignoredResources>
-                        <exceptions combine.children="append">
-                            <exception>
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>jaxen</groupId>
-                                        <artifactId>jaxen</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xerces</groupId>
-                                        <artifactId>xmlParserAPIs</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xml-apis</groupId>
-                                        <artifactId>xml-apis</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xmlrpc</groupId>
-                                        <artifactId>xmlrpc</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>stax</groupId>
-                                        <artifactId>stax-api</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xml-apis</groupId>
-                                        <artifactId>xml-apis</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>xalan</groupId>
-                                        <artifactId>xalan</artifactId>
-                                        <version>(1.0,)</version>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <classes>
-                                    <class>org.apache.xmlcommons.Version</class>
-                                </classes>
-                                <packages>
-                                    <package>org.w3c.dom.ls</package>
-                                    <package>javax.xml</package>
-                                    <package>org.w3c.dom</package>
-                                    <package>org.xml.sax</package>
-                                    <package>org.w3c.dom.xpath</package>
-                                </packages>
-                            </exception>
-                            <exception>
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>aopalliance</groupId>
-                                        <artifactId>aopalliance</artifactId>
-                                        <version>[1.0,)</version>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>org.springframework</groupId>
-                                        <artifactId>spring-aop</artifactId>
-                                        <version>[4.3,)</version>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <packages>
-                                    <package>org.aopalliance.aop</package>
-                                    <package>org.aopalliance.intercept</package>
-                                </packages>
-                            </exception>
-                        </exceptions>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <phase>verify</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -378,12 +290,6 @@
                                     <requireJavaVersion>
                                         <version>${parameter.java.version}</version>
                                     </requireJavaVersion>
-                                    <requirePluginVersions>
-                                        <message>Best Practice is to always define plugin versions!</message>
-                                        <banLatest>true</banLatest>
-                                        <banSnapshots>true</banSnapshots>
-                                        <unCheckedPluginList>${parameter.enforcer.unchecked.plugins.list}</unCheckedPluginList>
-                                    </requirePluginVersions>
                                     <requireReleaseDeps>
                                         <onlyWhenRelease>true</onlyWhenRelease>
                                     </requireReleaseDeps>
@@ -498,10 +404,99 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <!-- use findbugs until https://github.com/m2e-code-quality/m2e-code-quality/pull/113/commits/014be4075e75575e0d95f6c900ffa0e317444281 is merged for m2e support -->
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>${version.findbugs.maven.plugin}</version>
+                    <groupId>org.basepom.maven</groupId>
+                    <artifactId>duplicate-finder-maven-plugin</artifactId>
+                    <version>${version.duplicate.finder.maven.plugin}</version>
+                    <configuration>
+                        <failBuildInCaseOfDifferentContentConflict>true</failBuildInCaseOfDifferentContentConflict>
+                        <useDefaultResourceIgnoreList>true</useDefaultResourceIgnoreList>
+                        <useDefaultClassIgnoreList>true</useDefaultClassIgnoreList>
+                        <ignoredResourcePatterns combine.children="append">
+                            <ignoredResourcePattern>about.html</ignoredResourcePattern>
+                            <ignoredResourcePattern>META-INF/*</ignoredResourcePattern>
+                            <ignoredResourcePattern>plugin.properties</ignoredResourcePattern>
+                            <ignoredResourcePattern>about_files/.*</ignoredResourcePattern>
+                            <ignoredResourcePattern>about_files/.*</ignoredResourcePattern>
+                            <ignoredResourcePattern>META-INF/takari/export-package</ignoredResourcePattern>
+                        </ignoredResourcePatterns>
+                        <exceptions combine.children="append">
+                            <exception>
+                                <conflictingDependencies>
+                                    <dependency>
+                                        <groupId>jaxen</groupId>
+                                        <artifactId>jaxen</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xerces</groupId>
+                                        <artifactId>xmlParserAPIs</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xml-apis</groupId>
+                                        <artifactId>xml-apis</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xmlrpc</groupId>
+                                        <artifactId>xmlrpc</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>stax</groupId>
+                                        <artifactId>stax-api</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xml-apis</groupId>
+                                        <artifactId>xml-apis</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>xalan</groupId>
+                                        <artifactId>xalan</artifactId>
+                                        <version>(1.0,)</version>
+                                    </dependency>
+                                </conflictingDependencies>
+                                <classes>
+                                    <class>org.apache.xmlcommons.Version</class>
+                                </classes>
+                                <packages>
+                                    <package>org.w3c.dom.ls</package>
+                                    <package>javax.xml</package>
+                                    <package>org.w3c.dom</package>
+                                    <package>org.xml.sax</package>
+                                    <package>org.w3c.dom.xpath</package>
+                                </packages>
+                            </exception>
+                            <exception>
+                                <conflictingDependencies>
+                                    <dependency>
+                                        <groupId>aopalliance</groupId>
+                                        <artifactId>aopalliance</artifactId>
+                                        <version>[1.0,)</version>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.springframework</groupId>
+                                        <artifactId>spring-aop</artifactId>
+                                        <version>[4.3,)</version>
+                                    </dependency>
+                                </conflictingDependencies>
+                                <packages>
+                                    <package>org.aopalliance.aop</package>
+                                    <package>org.aopalliance.intercept</package>
+                                </packages>
+                            </exception>
+                        </exceptions>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                            <phase>verify</phase>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
@@ -572,12 +567,12 @@
                 <artifactId>japicmp-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.ning.maven.plugins</groupId>
-                <artifactId>maven-duplicate-finder-plugin</artifactId>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>io.takari.maven.plugins</groupId>
@@ -593,6 +588,10 @@
                 <artifactId>maven-pmd-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>org.basepom.maven</groupId>
+                <artifactId>duplicate-finder-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
@@ -604,6 +603,11 @@
     </build>
     <reporting>
         <plugins>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${version.spotbugs.maven.plugin}</version>
+            </plugin>
             <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${version.checkstyle.maven.plugin}</version>
@@ -643,12 +647,6 @@
             <plugin>
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <version>${version.surefire.maven.plugin}</version>
-            </plugin>
-            <plugin>
-                <!-- use findbugs until https://github.com/m2e-code-quality/m2e-code-quality/pull/113/commits/014be4075e75575e0d95f6c900ffa0e317444281 is merged for m2e support -->
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${version.findbugs.maven.plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

@@ -2,6 +2,7 @@
 **/.project
 **/target/
 **/.pmd
+**/.pmdruleset.xml
 **/.checkstyle
 **/.classpath
 **/pom.xml.versionsBackup

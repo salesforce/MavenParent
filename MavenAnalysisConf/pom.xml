@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>1.0.6-SNAPSHOT</version>
+        <version>1.0.6</version>
     </parent>
     <artifactId>MavenAnalysisConf</artifactId>
     <name>${project.artifactId}</name>
@@ -18,7 +18,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -27,12 +27,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>3.10.0</version>
                 <configuration>
                     <skipPmdError>false</skipPmdError>
                     <rulesets>
                         <ruleset>${basedir}/src/main/resources/rulesets/java/pmd-level0.xml</ruleset>
-                        <ruleset>${basedir}/src/main/resources/rulesets/java/pmd60-level0.xml</ruleset>
                     </rulesets>
                 </configuration>
                 <executions>
