@@ -344,7 +344,7 @@
                         </excludeRoots>
                         <excludes>
                             <!-- works around a bug in m2e-codequality -->
-                            <exclude>${project.build.directory}/**/*.js</exclude>
+                            <exclude>${project.basedir}/**/*.js</exclude>
                         </excludes>
                         <linkXRef>false</linkXRef>
                         <failOnViolation>${parameter.pmd.fail}</failOnViolation>
