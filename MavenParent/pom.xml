@@ -341,10 +341,11 @@
                             <excludeRoot>${project.build.directory}/generated-sources/annotations</excludeRoot>
                             <excludeRoot>${project.build.directory}/generated-test-sources/test-annotations</excludeRoot>
                             <excludeRoot>${project.build.directory}/</excludeRoot>
+                            <excludeRoot>${project.build.directory}/target</excludeRoot>
                         </excludeRoots>
                         <excludes>
                             <!-- works around a bug in m2e-codequality -->
-                            <exclude>${project.basedir}/**/*.js</exclude>
+                            <exclude>**/*.js</exclude>
                         </excludes>
                         <linkXRef>false</linkXRef>
                         <failOnViolation>${parameter.pmd.fail}</failOnViolation>
