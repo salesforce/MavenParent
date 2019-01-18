@@ -3,15 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.salesforce.maven</groupId>
     <artifactId>MavenBase</artifactId>
-    <version>1.0.7-SNAPSHOT</version>
+    <version>1.0.7</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
        static analysis checks, and MavenParent that can use the later as bundled jar files downloaded from maven central.</description>
-    <prerequisites>
-        <!-- minimum version for plugins to function correctly -->
-        <maven>3.1.0</maven>
-    </prerequisites>
     <modules>
         <module>MavenSiteSkin</module>
         <module>MavenAnalysisConf</module>
@@ -32,6 +28,7 @@
         <parameter.distribution.snapshots>https://oss.sonatype.org/content/repositories/snapshots/</parameter.distribution.snapshots>
         <parameter.github.site.deploy.skip>false</parameter.github.site.deploy.skip>
         <parameter.license>BSD-3</parameter.license>
+        <parameter.sortpom.disabled>false</parameter.sortpom.disabled>
         <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.clean.maven.plugin>3.1.0</version.clean.maven.plugin>
@@ -50,6 +47,8 @@
                     <artifactId>sortpom-maven-plugin</artifactId>
                     <version>${version.sortpom.maven.plugin}</version>
                     <configuration>
+                        <skip>${parameter.sortpom.disabled}</skip>
+                        <indentSize>4</indentSize>
                         <sortOrderFile>com/shankyank/pom_sort_order.xml</sortOrderFile>
                         <lineSeparator>\n</lineSeparator>
                         <encoding>${project.build.sourceEncoding}</encoding>
