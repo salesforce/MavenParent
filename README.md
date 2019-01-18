@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/salesforce/MavenParent.svg?branch=master)](https://travis-ci.org/salesforce/MavenParent)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e23ae73e84bc4b76b912afdeb679dc22)](https://www.codacy.com/app/rexhoffman/MavenParent?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=salesforce/MavenParent&amp;utm_campaign=Badge_Grade)
-[![Maven Site](https://img.shields.io/badge/maven_site-1.0.5-green.svg)](https://salesforce.github.com/MavenParent/1.0.5/index.html)
+[![Maven Site](https://img.shields.io/badge/maven_site-1.0.7-green.svg)](https://salesforce.github.com/MavenParent/1.0.7/index.html)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.salesforce.maven/MavenParent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.salesforce.maven/MavenParent)
 
 
@@ -24,7 +24,7 @@ To use add to your maven project's pom.xml file:
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenParent</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.7</version>
     </parent>
 ```
 
