@@ -44,7 +44,7 @@
         <parameter.pmd.priority>5</parameter.pmd.priority>
         <parameter.pmd.rules>/rulesets/java/pmd-level0.xml</parameter.pmd.rules>
         <parameter.takari.proc>proc</parameter.takari.proc>
-        <!-- max m2e version of checkstyle supported today -->
+        <!-- max version of checkstyle supported by m2e  8.14 -->
         <version.checkstyle>8.14</version.checkstyle>
         <version.checkstyle.maven.plugin>3.0.0</version.checkstyle.maven.plugin>
         <version.compiler.maven.plugin>3.8.0</version.compiler.maven.plugin>
@@ -63,7 +63,7 @@
         <!-- max m2e version of pmd supported today -->
         <version.pmd.maven.plugin>3.11.0</version.pmd.maven.plugin>
         <version.resources.maven.plugin>3.1.0</version.resources.maven.plugin>
-        <version.spotbugs.maven.plugin>3.1.7</version.spotbugs.maven.plugin>
+        <version.spotbugs.maven.plugin>3.1.10</version.spotbugs.maven.plugin>
         <version.surefire.maven.plugin>2.22.1</version.surefire.maven.plugin>
         <version.takari.maven.plugin>1.13.8</version.takari.maven.plugin>
     </properties>
@@ -303,19 +303,6 @@
                             </configuration>
                         </execution>
                     </executions>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${version.surefire.maven.plugin}</version>
-                    <configuration>
-                        <includes>
-                            <include>**/*.java</include>
-                        </includes>
-                        <parallel>classesAndMethods</parallel>
-                        <useFile>false</useFile>
-                        <useUnlimitedThreads>true</useUnlimitedThreads>
-                        <trimStackTrace>false</trimStackTrace>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-install-plugin</artifactId>
