@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -8,10 +8,8 @@
     </parent>
     <artifactId>MavenSiteSkin</artifactId>
     <name>${project.artifactId}</name>
-    <description>
-      A fluido skin overlay made a bit prettier.  There is a nasty hack in this build to turn a PNG in to a base64 
-      encoded block in a css file. This is really bad practice on my part.  I should clean that up.
-    </description>
+    <description>A fluido skin overlay made a bit prettier.  There is a nasty hack in this build to turn a PNG in to a base64 
+      encoded block in a css file. This is really bad practice on my part.  I should clean that up.</description>
     <properties>
         <additional-source-folder>${project.build.directory}/unpacked/resources/</additional-source-folder>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
