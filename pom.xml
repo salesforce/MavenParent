@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.salesforce.maven</groupId>
     <artifactId>MavenBase</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
@@ -33,7 +33,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.clean.maven.plugin>3.1.0</version.clean.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
-        <version.javadoc.maven.plugin>3.0.1</version.javadoc.maven.plugin>
+        <version.javadoc.maven.plugin>3.1.0</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
         <version.reports.maven.plugin>3.0.0</version.reports.maven.plugin>
         <version.site.maven.plugin>3.7.1</version.site.maven.plugin>
