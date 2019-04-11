@@ -27,6 +27,7 @@
         <maven.analysis.configuration>1.0.11-SNAPSHOT</maven.analysis.configuration>
         <outputEncoding>UTF-8</outputEncoding>
         <parameter.checkstyle.xml>checkstyle.xml</parameter.checkstyle.xml>
+        <parameter.checkstyle.failsOnError>false</parameter.checkstyle.failsOnError>
         <parameter.disable.semantic.versioning>false</parameter.disable.semantic.versioning>
         <!-- execution of maven must occur within java version below or greater -->
         <parameter.enforcer.min.java.version>1.8.0</parameter.enforcer.min.java.version>
@@ -233,6 +234,7 @@
                         <includeResources>false</includeResources>
                         <includeTestResources>false</includeTestResources>
                         <propertyExpansion>license.regex=${parameter.license.regex}</propertyExpansion>
+                        <failsOnError>${parameter.checkstyle.failsOnError}</failsOnError>
                     </configuration>
                     <dependencies>
                         <dependency>
