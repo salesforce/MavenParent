@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>1.0.11</version>
+        <version>1.0.12-SNAPSHOT</version>
     </parent>
     <artifactId>MavenAnalysisConf</artifactId>
     <name>${project.artifactId}</name>
@@ -27,7 +27,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.10.0</version>
+                <version>3.11.0</version>
                 <configuration>
                     <skipPmdError>false</skipPmdError>
                     <rulesets>
