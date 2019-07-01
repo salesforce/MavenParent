@@ -7,7 +7,7 @@
 
 
 Base Maven projects to get most the good stuff with minimal config on your part.
- * takari-lifecycle for incremental builds.
+ * takari-lifecycle for incremental builds (now disabled by default as m2e-apt is fully capable of handle APT in eclipse).
  * Checkstyle (google-like).
  * PMD (overrideable, simple, example config).
  * maven web site generation.
@@ -24,7 +24,7 @@ To use add to your maven project's pom.xml file:
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenParent</artifactId>
-        <version>1.0.11</version>
+        <version>1.0.12</version>
     </parent>
 ```
 

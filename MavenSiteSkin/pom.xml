@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>1.0.12-SNAPSHOT</version>
+        <version>1.0.12</version>
     </parent>
     <artifactId>MavenSiteSkin</artifactId>
     <name>${project.artifactId}</name>
@@ -13,7 +13,7 @@
     <properties>
         <additional-source-folder>${project.build.directory}/unpacked/resources/</additional-source-folder>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
-        <version.fluido.skin>1.6</version.fluido.skin>
+        <version.fluido.skin>1.7</version.fluido.skin>
         <version.sources.maven.plugin>3.1.0</version.sources.maven.plugin>
     </properties>
     <dependencies>

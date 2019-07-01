@@ -28,10 +28,9 @@
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Base64;
 
 import org.apache.commons.io.IOUtils;
@@ -53,11 +52,11 @@ public class Base64EncodeTest {
         String fileName = jpgFile.getName();
         File cssFile = new File(targetDir.getAbsolutePath()+File.separator+"classes"+File.separator+"css"+File.separator+
                         fileName.substring(0, fileName.length() - 4)+".css");
-        try (InputStream stream = new FileInputStream(jpgFile); OutputStream outputFile = new FileOutputStream(cssFile)) {
+        try (InputStream stream = new FileInputStream(jpgFile); FileWriter writer = new FileWriter(cssFile)) {
           byte[] imageBytes = IOUtils.toByteArray(stream);
           String base64 = Base64.getEncoder().encodeToString(imageBytes);
           String css = "body {\n"+"background-image: url(\"data:image/jpeg;base64,"+base64+"\");\n}";
-          IOUtils.write(css, new FileOutputStream(cssFile));
+          IOUtils.write(css, writer);
       }
     }
   }

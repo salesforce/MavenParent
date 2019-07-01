@@ -4,14 +4,13 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>1.0.12-SNAPSHOT</version>
+        <version>1.0.12</version>
     </parent>
     <artifactId>MavenParent</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>This project provides the best of maven easily consumable a maven parent project, called MavenParent. With this project you get:
-           takari-lifecycle, which has a jdt based compiler that provides incremental recompilation, and proper APT support.
-           Checkstyle and PMD checks that will work by default in eclipse with m2e-codequality.
+           Checkstyle and PMD checks that will work by default in eclipse with m2e-code-quality.
            OWASP vulnerability checks of you dependencies.
            Easy application of BSD-3 clause license to all your code with mycila-license plugin.
            The ability to easily enforce semantic version on a jar project with japicmp.
@@ -46,6 +45,7 @@
         <parameter.pmd.fail>true</parameter.pmd.fail>
         <parameter.pmd.priority>5</parameter.pmd.priority>
         <parameter.pmd.rules>/rulesets/java/pmd-level0.xml</parameter.pmd.rules>
+        <parameter.takari.activated>false</parameter.takari.activated>
         <parameter.takari.proc>proc</parameter.takari.proc>
         <parameter.takari.transitiveDependencyReference>error</parameter.takari.transitiveDependencyReference>
         <!-- max version of checkstyle supported by m2e  8.14 -->
@@ -79,9 +79,9 @@
                     <artifactId>japicmp-maven-plugin</artifactId>
                     <version>${version.japicmp.maven.plugin}</version>
                     <configuration>
-                        <!-- ignoreMissingOldVersion>true</ignoreMissingOldVersion -->
                         <skip>${parameter.disable.semantic.versioning}</skip>
                         <parameter>
+                            <ignoreMissingOldVersion>true</ignoreMissingOldVersion>
                             <breakBuildBasedOnSemanticVersioning>true</breakBuildBasedOnSemanticVersioning>
                             <breakBuildBasedOnSemanticVersioningForMajorVersionZero>false</breakBuildBasedOnSemanticVersioningForMajorVersionZero>
                         </parameter>
@@ -113,7 +113,6 @@
                     <configuration>
                         <headerDefinitions></headerDefinitions>
                         <header>com/mycila/maven/plugin/license/templates/${parameter.license}.txt</header>
-                        <encoding>utf8</encoding>
                         <properties>
                             <owner>${parameter.organization.name}</owner>
                             <email>${parameter.organization.email}</email>
@@ -147,81 +146,6 @@
                             <goals>
                                 <goal>check</goal>
                             </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>io.takari.maven.plugins</groupId>
-                    <artifactId>takari-lifecycle-plugin</artifactId>
-                    <version>${version.takari.maven.plugin}</version>
-                    <configuration>
-                        <transitiveDependencyReference>${parameter.takari.transitiveDependencyReference}</transitiveDependencyReference>
-                        <source>${parameter.java.version}</source>
-                        <target>${parameter.java.version}</target>
-                        <compilerId>jdt</compilerId>
-                        <showWarnings>true</showWarnings>
-                        <proc>${parameter.takari.proc}</proc>
-                        <testJar>true</testJar>
-                        <sourceJar>true</sourceJar>
-                        <deployAtEnd>false</deployAtEnd>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>validate</id>
-                            <goals>
-                                <goal>update-check</goal>
-                            </goals>
-                            <phase>validate</phase>
-                        </execution>
-                        <execution>
-                            <id>process-resources</id>
-                            <goals>
-                                <goal>process-resources</goal>
-                            </goals>
-                            <phase>process-resources</phase>
-                        </execution>
-                        <execution>
-                            <id>compile</id>
-                            <goals>
-                                <goal>compile</goal>
-                            </goals>
-                            <phase>compile</phase>
-                        </execution>
-                        <execution>
-                            <id>process-classes</id>
-                            <goals>
-                                <goal>export-package</goal>
-                            </goals>
-                            <phase>process-classes</phase>
-                        </execution>
-                        <execution>
-                            <id>process-test-resources</id>
-                            <goals>
-                                <goal>process-test-resources</goal>
-                            </goals>
-                            <phase>process-test-resources</phase>
-                        </execution>
-                        <execution>
-                            <id>test-compile</id>
-                            <goals>
-                                <goal>testCompile</goal>
-                            </goals>
-                            <phase>test-compile</phase>
-                        </execution>
-                        <execution>
-                            <id>process-test-classes</id>
-                            <goals>
-                                <goal>sisu-test-index</goal>
-                            </goals>
-                            <phase>process-test-classes</phase>
-                        </execution>
-                        <execution>
-                            <id>package</id>
-                            <goals>
-                                <goal>jar</goal>
-                                <goal>addPluginArtifactMetadata</goal>
-                            </goals>
-                            <phase>package</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -264,12 +188,9 @@
                     <configuration>
                         <source>${parameter.java.version}</source>
                         <target>${parameter.java.version}</target>
-                        <skip>true</skip>
-                        <skipMain>true</skipMain>
                     </configuration>
                 </plugin>
                 <plugin>
-                    <!-- unused -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>${version.deployer.maven.plugin}</version>
@@ -367,9 +288,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${version.resources.maven.plugin}</version>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
@@ -568,10 +486,6 @@
                 <artifactId>license-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>io.takari.maven.plugins</groupId>
-                <artifactId>takari-lifecycle-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
             <plugin>
@@ -657,6 +571,122 @@
             </plugin>
         </plugins>
     </reporting>
+    <profiles>
+        <profile>
+            <id>takari</id>
+            <activation>
+                <property>
+                    <name>parameter.takari.activated</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>io.takari.maven.plugins</groupId>
+                            <artifactId>takari-lifecycle-plugin</artifactId>
+                            <version>${version.takari.maven.plugin}</version>
+                            <configuration>
+                                <transitiveDependencyReference>${parameter.takari.transitiveDependencyReference}</transitiveDependencyReference>
+                                <source>${parameter.java.version}</source>
+                                <target>${parameter.java.version}</target>
+                                <compilerId>jdt</compilerId>
+                                <showWarnings>true</showWarnings>
+                                <proc>${parameter.takari.proc}</proc>
+                                <testJar>true</testJar>
+                                <sourceJar>true</sourceJar>
+                                <deployAtEnd>false</deployAtEnd>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>validate</id>
+                                    <goals>
+                                        <goal>update-check</goal>
+                                    </goals>
+                                    <phase>validate</phase>
+                                </execution>
+                                <execution>
+                                    <id>process-resources</id>
+                                    <goals>
+                                        <goal>process-resources</goal>
+                                    </goals>
+                                    <phase>process-resources</phase>
+                                </execution>
+                                <execution>
+                                    <id>compile</id>
+                                    <goals>
+                                        <goal>compile</goal>
+                                    </goals>
+                                    <phase>compile</phase>
+                                </execution>
+                                <execution>
+                                    <id>process-classes</id>
+                                    <goals>
+                                        <goal>export-package</goal>
+                                    </goals>
+                                    <phase>process-classes</phase>
+                                </execution>
+                                <execution>
+                                    <id>process-test-resources</id>
+                                    <goals>
+                                        <goal>process-test-resources</goal>
+                                    </goals>
+                                    <phase>process-test-resources</phase>
+                                </execution>
+                                <execution>
+                                    <id>test-compile</id>
+                                    <goals>
+                                        <goal>testCompile</goal>
+                                    </goals>
+                                    <phase>test-compile</phase>
+                                </execution>
+                                <execution>
+                                    <id>process-test-classes</id>
+                                    <goals>
+                                        <goal>sisu-test-index</goal>
+                                    </goals>
+                                    <phase>process-test-classes</phase>
+                                </execution>
+                                <execution>
+                                    <id>package</id>
+                                    <goals>
+                                        <goal>jar</goal>
+                                        <goal>addPluginArtifactMetadata</goal>
+                                    </goals>
+                                    <phase>package</phase>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <artifactId>maven-compiler-plugin</artifactId>
+                            <version>${version.compiler.maven.plugin}</version>
+                            <configuration>
+                                <source>${parameter.java.version}</source>
+                                <target>${parameter.java.version}</target>
+                                <skip>true</skip>
+                                <skipMain>true</skipMain>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-resources-plugin</artifactId>
+                            <version>${version.resources.maven.plugin}</version>
+                            <configuration>
+                                <skip>true</skip>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>io.takari.maven.plugins</groupId>
+                        <artifactId>takari-lifecycle-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <scm>
         <connection>${project.parent.scm.connection}</connection>
         <developerConnection>${project.parent.scm.developerConnection}</developerConnection>
