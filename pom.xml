@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.salesforce.maven</groupId>
     <artifactId>MavenBase</artifactId>
-    <version>1.0.13</version>
+    <version>1.0.14</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Please don't use this parent pom, but instead use MavenParent.   This project exists to produce a site skin, a set of 
@@ -38,6 +38,7 @@
         <version.reports.maven.plugin>3.0.0</version.reports.maven.plugin>
         <version.site.maven.plugin>3.7.1</version.site.maven.plugin>
         <version.sortpom.maven.plugin>2.10.0</version.sortpom.maven.plugin>
+        <version.sources.maven.plugin>3.1.0</version.sources.maven.plugin>
     </properties>
     <build>
         <pluginManagement>
@@ -137,6 +138,20 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${version.sources.maven.plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <!-- deploy artifacts if and only if all projects in a reactor build succeed. -->
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -176,6 +191,9 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
             </plugin>
             <plugin>
                 <!-- deploy artifacts if and only if all projects in a reactor build succeed. -->
