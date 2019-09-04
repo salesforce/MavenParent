@@ -11,7 +11,7 @@
     <name>${project.artifactId}</name>
     <description>This project provides the best of maven easily consumable a maven parent project, called MavenParent. With this project you get:
            Checkstyle and PMD checks that will work by default in eclipse with m2e-code-quality.
-           OWASP vulnerability checks of you dependencies.
+           OWASP vulnerability checks of your dependencies.
            Easy application of BSD-3 clause license to all your code with mycila-license plugin.
            The ability to easily enforce semantic version on a jar project with japicmp.
            Prevent duplicates on your classpath with basepom's duplicate-finder.
