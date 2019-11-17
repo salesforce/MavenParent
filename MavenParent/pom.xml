@@ -54,7 +54,7 @@
         <version.compiler.maven.plugin>3.8.1</version.compiler.maven.plugin>
         <version.depedency.maven.plugin>3.1.1</version.depedency.maven.plugin>
         <version.deployer.maven.plugin>3.0.0-M1</version.deployer.maven.plugin>
-        <version.duplicate.finder.maven.plugin>1.3.0</version.duplicate.finder.maven.plugin>
+        <version.duplicate.finder.maven.plugin>1.4.0</version.duplicate.finder.maven.plugin>
         <version.enforcer.maven.plugin>3.0.0-M2</version.enforcer.maven.plugin>
         <version.install.maven.plugin>3.0.0-M1</version.install.maven.plugin>
         <version.jacoco.maven.plugin>0.8.5</version.jacoco.maven.plugin>
