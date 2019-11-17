@@ -20,15 +20,13 @@ Cloned from https://github.com/rexhoffman/MavenBase with some renaming and clean
 
 To use add to your maven project's pom.xml file:
 
-```
+```xml
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenParent</artifactId>
         <version>1.0.16</version>
     </parent>
-```
 
-```
     <properties>
         <github.owner>YOUR GITHUB GROUP OR USER</github.owner>
         <github.project>YOUR GITHUB PROJECT</github.project>
@@ -40,7 +38,7 @@ To use add to your maven project's pom.xml file:
 
 Every child pom (module) of that pom should have a property of:
 
-```
+```xml
     <properties>
         <github.site.location>${project.version}/${artifactId}</github.site.location>
     </properties>
@@ -57,7 +55,7 @@ for incremental build and proper APT support in eclipse.
 
 ## Configuration options
 
-```
+```xml
     <!-- explained above -->
     <github.domain>
     <github.owner>
@@ -183,9 +181,8 @@ for incremental build and proper APT support in eclipse.
 * update src/site/site.xml version of MavenAnalysisConf 
 
 Add credentials in your ~/.m2/settings.xml like:
-
-If you want to use gpg.signatures, just call with -Dgpg.passphrase= and the artifacts will be signed. This is usually only needed for oss.sonatype.org.
     
+```xml
     <!-- if you also will be deploying open source projects, and have an account at https://oss.sonatype.org/
        then include this section -->
     <server>
@@ -193,6 +190,9 @@ If you want to use gpg.signatures, just call with -Dgpg.passphrase= and the arti
       <username><!-- REPLACE WITH TOKEN FROM https://oss.sonatype.org/ --></username>
       <password><!-- REPLACE WITH TOKEN FROM https://oss.sonatype.org/ --></password>
     </server>
+```
+
+If you want to use gpg.signatures, just call with -Dgpg.passphrase= and the artifacts will be signed. This is usually only needed for oss.sonatype.org.
 
 ## When deploying a maven generated site to github.com:
 
@@ -200,11 +200,13 @@ If you want to use gpg.signatures, just call with -Dgpg.passphrase= and the arti
 mvn site site-deploy
 ```
 
-You should create a personal access key in https://github.com/settings/tokens/ with the following permission: notifications, repo, user,
+First create a personal access key in https://github.com/settings/tokens/ with the following permissions:
+* public_repo
+* user:email
 
 and a section in your ~/.m2/settings.xml like:
 
-```
+```xml
     <server>
       <id>github.com</id>
       <password><!-- REPLACE WITH TOKEN FROM github.com --></password>
