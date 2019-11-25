@@ -42,6 +42,11 @@
       <property name="fileExtensions" value="java" />
     </module>  
     <module name="SuppressWarningsFilter" />
+    <module name="LineLength">
+        <!-- extending from google's 100 to 132, max for a 3 way diff on modern monitors -->
+        <property name="max" value="132"/>
+        <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    </module>
     <module name="TreeWalker">
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">
@@ -53,11 +58,6 @@
             <property name="allowEscapesForControlCharacters" value="true"/>
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
-        </module>
-        <module name="LineLength">
-            <!-- extending from google's 100 to 132, max for a 3 way diff on modern monitors -->
-            <property name="max" value="132"/>
-            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
         </module>
         <module name="AvoidStarImport"/>
         <module name="OneTopLevelClass"/>
@@ -238,8 +238,6 @@
             <property name="allowMissingParamTags" value="false"/>
             <property name="allowMissingThrowsTags" value="false"/>
             <property name="allowMissingReturnTag" value="false"/>
-            <!-- min line length of 2 is... aggressive, 10 is more civilized. -->
-            <property name="minLineCount" value="10"/>
             <property name="allowedAnnotations" value="Override, Test"/>
             <property name="allowThrowsTagsForSubclasses" value="true"/>
         </module>
