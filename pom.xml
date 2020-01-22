@@ -239,7 +239,7 @@
         </profile>
     </profiles>
     <url>https://${github.domain}/${github.owner}/${github.project}/</url>
-    <inceptionYear>2017</inceptionYear>
+    <inceptionYear>2020</inceptionYear>
     <organization>
         <name>Salesforce OSS</name>
         <url>https://github.com/salesforce/</url>
