@@ -14,7 +14,7 @@
         <additional-source-folder>${project.build.directory}/unpacked/resources/</additional-source-folder>
         <github.site.location>${project.version}/${project.artifactId}</github.site.location>
         <version.fluido.skin>1.7</version.fluido.skin>
-        <version.sources.maven.plugin>3.2.0</version.sources.maven.plugin>
+        <version.sources.maven.plugin>3.2.1</version.sources.maven.plugin>
     </properties>
     <dependencies>
         <dependency>
