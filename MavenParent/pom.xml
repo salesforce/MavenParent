@@ -63,7 +63,7 @@
         <version.jdepend.maven.plugin>2.0</version.jdepend.maven.plugin>
         <version.jxr.maven.plugin>3.0.0</version.jxr.maven.plugin>
         <version.mycila-license.maven.plugin>3.0</version.mycila-license.maven.plugin>
-        <version.owasp.check.maven.plugin>5.3.0</version.owasp.check.maven.plugin>
+        <version.owasp.check.maven.plugin>5.3.1</version.owasp.check.maven.plugin>
         <version.pmd>6.19.0</version.pmd>
         <version.pmd.maven.plugin>3.12.0</version.pmd.maven.plugin>
         <version.resources.maven.plugin>3.1.0</version.resources.maven.plugin>
