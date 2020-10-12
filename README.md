@@ -207,6 +207,9 @@ mvn site site-deploy
 
 First create a personal access key in https://github.com/settings/tokens/ with the following permissions:
 * public_repo
+* read:enterprise
+* read:org
+* read:user
 * user:email
 
 and a section in your ~/.m2/settings.xml like:
