@@ -192,7 +192,12 @@ Add credentials in your ~/.m2/settings.xml like:
     </server>
 ```
 
-If you want to use gpg.signatures, just call with -Dgpg.passphrase= and the artifacts will be signed. This is usually only needed for oss.sonatype.org.
+Note on Mac/Linux since gpg 2.1+, you'll want to assert your gpg tty is set, so deploy like:
+```bash
+mvn clean deploy -Dgpg.useagent=true
+export GPG_TTY=$(tty)
+```
+
 
 ## When deploying a maven generated site to github.com:
 
