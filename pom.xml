@@ -110,7 +110,6 @@
                             <goals>
                                 <goal>sign</goal>
                             </goals>
-                            <phase>verify</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -178,6 +177,10 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <executions>
                     <execution>
@@ -214,30 +217,6 @@
             </plugin>
         </plugins>
     </reporting>
-    <profiles>
-        <!-- not all builders will have credentials, hence disable by default -->
-        <profile>
-            <id>sign-for-oss-nexus</id>
-            <activation>
-                <property>
-                    <name>gpg.passphrase</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                    </plugin>
-                    <!-- will attempt to have checkstyle catch all potential javadoc errors. -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
     <url>https://${github.domain}/${github.owner}/${github.project}/</url>
     <inceptionYear>2020</inceptionYear>
     <organization>
