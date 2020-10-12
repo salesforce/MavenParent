@@ -50,7 +50,7 @@
         <parameter.takari.transitiveDependencyReference>error</parameter.takari.transitiveDependencyReference>
         <!-- max version of checkstyle supported by m2e  8.14 -->
         <version.checkstyle>8.29</version.checkstyle>
-        <version.checkstyle.maven.plugin>3.1.0</version.checkstyle.maven.plugin>
+        <version.checkstyle.maven.plugin>3.1.1</version.checkstyle.maven.plugin>
         <version.compiler.maven.plugin>3.8.1</version.compiler.maven.plugin>
         <version.depedency.maven.plugin>3.1.1</version.depedency.maven.plugin>
         <version.deployer.maven.plugin>3.0.0-M1</version.deployer.maven.plugin>
