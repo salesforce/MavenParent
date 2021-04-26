@@ -61,7 +61,7 @@
         <version.japicmp.maven.plugin>0.15.3</version.japicmp.maven.plugin>
         <version.jar.maven.plugin>3.2.0</version.jar.maven.plugin>
         <version.jdepend.maven.plugin>2.0</version.jdepend.maven.plugin>
-        <version.jxr.maven.plugin>3.0.0</version.jxr.maven.plugin>
+        <version.jxr.maven.plugin>3.1.1</version.jxr.maven.plugin>
         <version.mycila-license.maven.plugin>3.0</version.mycila-license.maven.plugin>
         <version.owasp.check.maven.plugin>6.2.2</version.owasp.check.maven.plugin>
         <version.pmd>6.19.0</version.pmd>
