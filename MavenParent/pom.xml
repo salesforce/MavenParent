@@ -237,6 +237,13 @@
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.jar.maven.plugin}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                        </archive>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
