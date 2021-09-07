@@ -1,0 +1,17 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: docker.io/azul/zulu-openjdk-centos:8
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "pom.xml" }} # appends cache key with a hash of pom.xml file
+            - v1-dependencies- # fallback in case previous cache key is not found
+      - run: ./.mvn/mvnw clean install --settings .circleci/settings.xml -Dmaven.javadoc.skip=true -Dgpg.skip=true
+      - save_cache:
+            paths:
+              - ~/.m2
+            key: v1-dependencies-{{ checksum "pom.xml" }}

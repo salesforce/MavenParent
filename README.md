@@ -1,9 +1,8 @@
 ### Status ###
 
-[![Build Status](https://travis-ci.org/salesforce/MavenParent.svg?branch=master)](https://travis-ci.org/salesforce/MavenParent)
+![Build Status](https://img.shields.io/circleci/build/github/salesforce/MavenParent)
 [![Maven Site](https://img.shields.io/badge/maven_site-2.0.1-green.svg)](https://opensource.salesforce.com/MavenParent/2.0.1/index.html)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.salesforce.maven/MavenParent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.salesforce.maven/MavenParent)
-
+![Maven Central](https://img.shields.io/maven-central/v/com.salesforce.maven/MavenParent)
 
 Base Maven projects to get most the good stuff with minimal config on your part.
  * takari-lifecycle for incremental builds (now disabled by default as m2e-apt is fully capable of handle APT in eclipse).
@@ -219,3 +218,12 @@ and a section in your ~/.m2/settings.xml like:
       <password><!-- REPLACE WITH TOKEN FROM github.com --></password>
     </server>
 ```
+
+## When upgrading the version of maven
+
+CI jobs will use the takari maven wrapper, so:
+```sh
+mvn -N io.takari:maven:0.7.7:wrapper -Dmaven=3.6.2 --settings=.circleci/settings.xml --non-recursive
+```
+
+Put in the desired version and keep the `mvnw` files on a separate commit.
