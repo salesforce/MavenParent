@@ -7,3 +7,4 @@
 **/.classpath
 **/pom.xml.versionsBackup
 .drone.sec.yml
+.mvn/wrapper/maven-wrapper.jar
