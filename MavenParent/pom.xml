@@ -537,6 +537,15 @@
                 <version>${version.checkstyle.maven.plugin}</version>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version.javadoc.maven.plugin}</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <quiet>true</quiet>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>${version.jxr.maven.plugin}</version>
                 <configuration>
