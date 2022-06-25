@@ -38,7 +38,7 @@
         <parameter.japicmp.ignoredpackage>*.internal*</parameter.japicmp.ignoredpackage>
         <parameter.java.version>1.8</parameter.java.version>
         <parameter.license.regex>${license.regex.BSD-3}</parameter.license.regex>
-        <parameter.organization.email>rex.hoffman@salesforce.com</parameter.organization.email>
+        <parameter.organization.email>rremer@salesforce.com</parameter.organization.email>
         <parameter.organization.name>Salesforce.com, Inc</parameter.organization.name>
         <parameter.owasp.failOnCVSSLevelOrGreater>8</parameter.owasp.failOnCVSSLevelOrGreater>
         <parameter.pmd.analysisCache>true</parameter.pmd.analysisCache>
