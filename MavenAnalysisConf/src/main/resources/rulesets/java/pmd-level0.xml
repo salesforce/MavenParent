@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="Custom ruleset" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/schema/ruleset_2_0_0.xsd">
     <description>Simple Ruleset</description>
  
     <!-- BEGIN:  replacement for unusedcode.xml -->
@@ -14,16 +14,10 @@
   
   
     <!-- BEGIN: replacement for  rulesets/java/empty.xml -->
-    <rule ref="category/java/errorprone.xml/EmptyFinallyBlock" />
-    <rule ref="category/java/errorprone.xml/EmptyIfStmt" />
-    <rule ref="category/java/errorprone.xml/EmptyInitializer" />
-    <rule ref="category/java/errorprone.xml/EmptyStatementBlock" />
-    <rule ref="category/java/errorprone.xml/EmptyStatementNotInLoop" />
-    <rule ref="category/java/errorprone.xml/EmptyInitializer" name="EmptyStaticInitializer" />
-    <rule ref="category/java/errorprone.xml/EmptySwitchStatements" />
-    <rule ref="category/java/errorprone.xml/EmptySynchronizedBlock" />
-    <rule ref="category/java/errorprone.xml/EmptyTryBlock" />
-    <rule ref="category/java/errorprone.xml/EmptyWhileStmt" />
+    <rule ref="category/java/codestyle.xml/UnnecessarySemicolon" />
+    <rule ref="category/java/codestyle.xml/EmptyControlStatement" />
+    <rule ref="category/java/errorprone.xml/EmptyCatchBlock" />
+
   
     <!-- loosening for comments as to why it needs to be empty -->
     <rule ref="category/java/errorprone.xml/EmptyCatchBlock">
@@ -35,16 +29,13 @@
   
   
     <!-- BEGIN: replacement for  rulesets/java/imports.xml -->
-    <rule ref="category/java/bestpractices.xml/UnusedImports" />
+    <rule ref="category/java/codestyle.xml/UnnecessaryImport" />
 
-    <rule ref="category/java/errorprone.xml/ImportFromSamePackage" />
 
-    <rule ref="category/java/codestyle.xml/DontImportJavaLang" />
-    <rule ref="category/java/codestyle.xml/DuplicateImports" />
     <rule ref="category/java/codestyle.xml/TooManyStaticImports">
         <description>Non-test classes may not have more than 4 static imports.</description>
         <properties>
-            <property name="violationSuppressXPath" value="./TypeDeclaration//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]" />
+            <property name="violationSuppressXPath" value="./ancestor-or-self::ClassDeclaration[contains(@SimpleName, 'Test')]"/>
         </properties>
     </rule>
     <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName" />
@@ -84,7 +75,7 @@
         <description>Non-test classes may not have more than 4 duplicate literals, unless the literal is for an annotation.</description>
         <properties>
             <property name="skipAnnotations" value="true" />
-            <property name="violationSuppressXPath" value="./ancestor::TypeDeclaration//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]" />
+            <property name="violationSuppressXPath" value="./ancestor-or-self::ClassDeclaration[contains(@SimpleName, 'Test')]"/>
         </properties>
     </rule>
     <!-- END: replacements for strings.xml -->
@@ -94,14 +85,13 @@
     <!-- BEGIN: replacements for typeresolution.xml -->
     <rule ref="category/java/bestpractices.xml/LooseCoupling" />
     <rule ref="category/java/errorprone.xml/CloneMethodMustImplementCloneable" />
-    <rule ref="category/java/bestpractices.xml/UnusedImports" />
     <!-- with loosening for tests -->
     <rule ref="category/java/design.xml/SignatureDeclareThrowsException">
         <description>Methods/Constructors in non test classes may not explicitly java.lang.Exception</description>
         <properties>
             <!-- doesn't effect parameterized constructors, like maven's -->
             <!-- property name="IgnoreJUnitCompletely" value="true"/-->
-            <property name="violationSuppressXPath" value="./ancestor::TypeDeclaration//MethodDeclaration[../Annotation/MarkerAnnotation/Name[@Image='Test']]" />
+            <property name="violationSuppressXPath" value="./ancestor-or-self::ClassDeclaration[contains(@SimpleName, 'Test')]"/>
         </properties>
     </rule>
     <!-- END: replacements for typeresolution.xml -->

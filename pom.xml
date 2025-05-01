@@ -31,12 +31,14 @@
         <parameter.sortpom.disabled>false</parameter.sortpom.disabled>
         <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.clean.maven.plugin>3.1.0</version.clean.maven.plugin>
+        <version.clean.maven.plugin>3.4.1</version.clean.maven.plugin>
+        <version.compiler.maven.plugin>3.14.0</version.compiler.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
-        <version.javadoc.maven.plugin>3.2.0</version.javadoc.maven.plugin>
+        <version.javadoc.maven.plugin>3.11.2</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
+        <version.pmd.maven.plugin>3.26.0</version.pmd.maven.plugin>
         <version.reports.maven.plugin>3.1.2</version.reports.maven.plugin>
-        <version.site.maven.plugin>3.9.1</version.site.maven.plugin>
+        <version.site.maven.plugin>3.21.0</version.site.maven.plugin>
         <version.sortpom.maven.plugin>2.12.0</version.sortpom.maven.plugin>
         <version.sources.maven.plugin>3.2.1</version.sources.maven.plugin>
     </properties>
