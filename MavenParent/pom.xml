@@ -43,6 +43,7 @@
         <parameter.owasp.failOnCVSSLevelOrGreater>8</parameter.owasp.failOnCVSSLevelOrGreater>
         <parameter.pmd.analysisCache>true</parameter.pmd.analysisCache>
         <parameter.pmd.fail>true</parameter.pmd.fail>
+        <parameter.pmd.java.version>${parameter.java.version}</parameter.pmd.java.version>
         <parameter.pmd.priority>5</parameter.pmd.priority>
         <parameter.pmd.rules>/rulesets/java/pmd-level0.xml</parameter.pmd.rules>
         <parameter.takari.activated>false</parameter.takari.activated>
@@ -50,25 +51,23 @@
         <parameter.takari.transitiveDependencyReference>error</parameter.takari.transitiveDependencyReference>
         <!-- max version of checkstyle supported by m2e  8.14 -->
         <version.checkstyle>8.29</version.checkstyle>
-        <version.checkstyle.maven.plugin>3.1.2</version.checkstyle.maven.plugin>
-        <version.compiler.maven.plugin>3.8.1</version.compiler.maven.plugin>
-        <version.depedency.maven.plugin>3.1.1</version.depedency.maven.plugin>
-        <version.deployer.maven.plugin>3.0.0-M1</version.deployer.maven.plugin>
+        <version.checkstyle.maven.plugin>3.6.0</version.checkstyle.maven.plugin>
+        <version.depedency.maven.plugin>3.8.1</version.depedency.maven.plugin>
+        <version.deployer.maven.plugin>3.1.4</version.deployer.maven.plugin>
         <version.duplicate.finder.maven.plugin>1.5.0</version.duplicate.finder.maven.plugin>
-        <version.enforcer.maven.plugin>3.0.0-M3</version.enforcer.maven.plugin>
-        <version.install.maven.plugin>3.0.0-M1</version.install.maven.plugin>
-        <version.jacoco.maven.plugin>0.8.6</version.jacoco.maven.plugin>
-        <version.japicmp.maven.plugin>0.15.3</version.japicmp.maven.plugin>
+        <version.enforcer.maven.plugin>3.5.0</version.enforcer.maven.plugin>
+        <version.install.maven.plugin>3.1.4</version.install.maven.plugin>
+        <version.jacoco.maven.plugin>0.8.13</version.jacoco.maven.plugin>
+        <version.japicmp.maven.plugin>0.23.1</version.japicmp.maven.plugin>
         <version.jar.maven.plugin>3.2.0</version.jar.maven.plugin>
         <version.jdepend.maven.plugin>2.0</version.jdepend.maven.plugin>
-        <version.jxr.maven.plugin>3.1.1</version.jxr.maven.plugin>
-        <version.mycila-license.maven.plugin>3.0</version.mycila-license.maven.plugin>
+        <version.jxr.maven.plugin>3.6.0</version.jxr.maven.plugin>
+        <version.mycila-license.maven.plugin>4.3</version.mycila-license.maven.plugin>
         <version.owasp.check.maven.plugin>6.2.2</version.owasp.check.maven.plugin>
-        <version.pmd>6.19.0</version.pmd>
-        <version.pmd.maven.plugin>3.12.0</version.pmd.maven.plugin>
-        <version.resources.maven.plugin>3.2.0</version.resources.maven.plugin>
-        <version.spotbugs.maven.plugin>3.1.12.2</version.spotbugs.maven.plugin>
-        <version.surefire.maven.plugin>3.0.0-M5</version.surefire.maven.plugin>
+        <version.pmd>7.13.0</version.pmd>
+        <version.resources.maven.plugin>3.3.1</version.resources.maven.plugin>
+        <version.spotbugs.maven.plugin>4.9.3.0</version.spotbugs.maven.plugin>
+        <version.surefire.maven.plugin>3.5.3</version.surefire.maven.plugin>
         <version.takari.maven.plugin>1.13.9</version.takari.maven.plugin>
     </properties>
     <build>
@@ -272,7 +271,7 @@
                         <failurePriority>${parameter.pmd.priority}</failurePriority>
                         <includeTests>true</includeTests>
                         <analysisCache>${parameter.pmd.analysisCache}</analysisCache>
-                        <targetJdk>${parameter.java.version}</targetJdk>
+                        <targetJdk>${parameter.pmd.java.version}</targetJdk>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -282,12 +281,12 @@
                         </dependency>
                         <dependency>
                             <groupId>net.sourceforge.pmd</groupId>
-                            <artifactId>pmd-java</artifactId>
+                            <artifactId>pmd-core</artifactId>
                             <version>${version.pmd}</version>
                         </dependency>
                         <dependency>
                             <groupId>net.sourceforge.pmd</groupId>
-                            <artifactId>pmd-java8</artifactId>
+                            <artifactId>pmd-java</artifactId>
                             <version>${version.pmd}</version>
                         </dependency>
                     </dependencies>
