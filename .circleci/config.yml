@@ -6,10 +6,6 @@ jobs:
       # see https://circleci.com/developer/images/image/cimg/openjdk
       - image: cimg/openjdk:8.0.442
     steps:
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "${CIRCLE_PROJECT_REPONAME}/pom.xml" }} # appends cache key with a hash of pom.xml file
-            - v1-dependencies- # fallback in case previous cache key is not found
       - run: |
           git clone "https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
           pushd "${CIRCLE_PROJECT_REPONAME}"
@@ -17,7 +13,3 @@ jobs:
           git checkout -f "${CIRCLE_SHA1}"
           git clean -dffx
           ./.mvn/mvnw clean install --settings .circleci/settings.xml -Dmaven.javadoc.skip=true -Dgpg.skip=true
-      - save_cache:
-            paths:
-              - ~/.m2
-            key: v1-dependencies-{{ checksum "${CIRCLE_PROJECT_REPONAME}/pom.xml" }}
