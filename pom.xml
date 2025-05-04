@@ -32,10 +32,10 @@
         <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.clean.maven.plugin>3.1.0</version.clean.maven.plugin>
-        <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
         <version.javadoc.maven.plugin>3.2.0</version.javadoc.maven.plugin>
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
         <version.reports.maven.plugin>3.1.2</version.reports.maven.plugin>
+        <version.sign-maven-plugin>1.0.1</version.sign-maven-plugin>
         <version.site.maven.plugin>3.9.1</version.site.maven.plugin>
         <version.sortpom.maven.plugin>2.12.0</version.sortpom.maven.plugin>
         <version.sources.maven.plugin>3.2.1</version.sources.maven.plugin>
@@ -102,19 +102,6 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${version.gpg.maven.plugin}</version>
-                    <executions>
-                        <execution>
-                            <id>sign-artifacts</id>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${version.javadoc.maven.plugin}</version>
                     <executions>
@@ -147,6 +134,19 @@
                                 <goal>jar-no-fork</goal>
                             </goals>
                             <phase>package</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.simplify4u.plugins</groupId>
+                    <artifactId>sign-maven-plugin</artifactId>
+                    <version>${version.sign-maven-plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
