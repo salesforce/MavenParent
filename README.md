@@ -1,7 +1,7 @@
 ### Status ###
 
 ![Build Status](https://img.shields.io/circleci/build/github/salesforce/MavenParent)
-[![Maven Site](https://img.shields.io/badge/maven_site-2.0.1-green.svg)](https://opensource.salesforce.com/MavenParent/2.0.1/index.html)
+[![Maven Site](https://img.shields.io/badge/maven_site-3.0.0-green.svg)](https://opensource.salesforce.com/MavenParent/3.0.0/index.html)
 ![Maven Central](https://img.shields.io/maven-central/v/com.salesforce.maven/MavenParent)
 
 Base Maven projects to get most the good stuff with minimal config on your part.
@@ -22,7 +22,7 @@ To use add to your maven project's pom.xml file:
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenParent</artifactId>
-        <version>2.0.1</version>
+        <version>3.0.0</version>
     </parent>
 
     <properties>

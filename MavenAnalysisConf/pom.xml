@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.salesforce.maven</groupId>
         <artifactId>MavenBase</artifactId>
-        <version>2.0.1</version>
+        <version>3.0.0</version>
     </parent>
     <artifactId>MavenAnalysisConf</artifactId>
     <name>${project.artifactId}</name>
