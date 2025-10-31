@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       # see https://circleci.com/developer/images/image/cimg/openjdk
-      - image: cimg/openjdk:8.0.442
+      - image: cimg/openjdk:11.0.29
     steps:
       - run: |
           git clone "https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"

@@ -29,7 +29,7 @@
         <parameter.checkstyle.xml>checkstyle.xml</parameter.checkstyle.xml>
         <parameter.disable.semantic.versioning>false</parameter.disable.semantic.versioning>
         <!-- execution of maven must occur within java version below or greater -->
-        <parameter.enforcer.min.java.version>1.8.0</parameter.enforcer.min.java.version>
+        <parameter.enforcer.min.java.version>11</parameter.enforcer.min.java.version>
         <parameter.enforcer.min.maven.version>3.5.0</parameter.enforcer.min.maven.version>
         <!-- example for following parameter: org.apache.maven.plugins:maven-enforcer-plugin,org.apache.maven.plugins:maven-idea-plugin -->
         <parameter.enforcer.unchecked.plugins.list></parameter.enforcer.unchecked.plugins.list>
@@ -50,7 +50,7 @@
         <parameter.takari.proc>proc</parameter.takari.proc>
         <parameter.takari.transitiveDependencyReference>error</parameter.takari.transitiveDependencyReference>
         <!-- max version of checkstyle supported by m2e  8.14 -->
-        <version.checkstyle>8.29</version.checkstyle>
+        <version.checkstyle>10.26.1</version.checkstyle>
         <version.checkstyle.maven.plugin>3.6.0</version.checkstyle.maven.plugin>
         <version.depedency.maven.plugin>3.8.1</version.depedency.maven.plugin>
         <version.deployer.maven.plugin>3.1.4</version.deployer.maven.plugin>
