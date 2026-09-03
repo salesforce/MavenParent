@@ -4,13 +4,13 @@
 [![Maven Site](https://img.shields.io/badge/maven_site-3.0.1-green.svg)](https://opensource.salesforce.com/MavenParent/3.0.1/index.html)
 ![Maven Central](https://img.shields.io/maven-central/v/com.salesforce.maven/MavenParent)
 
-Base Maven projects to get most the good stuff with minimal config on your part.
- * takari-lifecycle for incremental builds (now disabled by default as m2e-apt is fully capable of handle APT in eclipse).
+Base Maven projects to get most of the good stuff with minimal config on your part.
+ * takari-lifecycle for incremental builds (now disabled by default as m2e-apt is fully capable of handling APT in eclipse).
  * Checkstyle (google-like).
  * PMD (overrideable, simple, example config).
  * maven web site generation.
- * site publishing to back to github pages.
- * BSD-3 or MIT licenses checking/formating (you can easily add your own).
+ * site publishing back to github pages.
+ * BSD-3 or MIT licenses checking/formatting (you can easily add your own).
  * jar file deployment to oss.sonatype.org.
  * comparisons against old versions of your jar for binary compatibility.  (Packages including the word "*.internal.*" are skipped.
 
@@ -29,7 +29,7 @@ To use add to your maven project's pom.xml file:
         <github.owner>YOUR GITHUB GROUP OR USER</github.owner>
         <github.project>YOUR GITHUB PROJECT</github.project>
         <github.site.location>${project.version}/</github.site.location>
-        <!-- set the below parameter to false once you've cut your first release and you want semantic verion checking -->
+        <!-- set the below parameter to false once you've cut your first release and you want semantic version checking -->
         <parameter.disable.semantic.versioning>true</parameter.disable.semantic.versioning>
     </properties>
 ```
@@ -42,10 +42,10 @@ Every child pom (module) of that pom should have a property of:
     </properties>
 ```
 
-So that a multimodule project can publish it's sites back to github pages.
+So that a multimodule project can publish its sites back to github pages.
 
 To release the website, you will need a github token to allow maven to push the site content back to git in your .m2/settings.xml.
-To release artifacts to oss nexus you'll need credentials and and a server section to your .m2/settings.xml.  See example at the end of this file.
+To release artifacts to oss nexus you'll need credentials and add a server section to your .m2/settings.xml.  See example at the end of this file.
 
 
 PMD, checkstyle (close to google's style) and a BSD-3 license are set by default, as is the use of takari-lifecycle,
@@ -102,7 +102,7 @@ for incremental build and proper APT support in eclipse.
     <parameter.jacoco.branch.coverage>
     <parameter.jacoco.instruction.coverage>
     
-    <!-- currently set to ignore all packages containing an ".internal." segement.
+    <!-- currently set to ignore all packages containing an ".internal." segment.
     <parameter.japicmp.ignoredpackage>
     
     <!-- this is where you select one of licenses above.
@@ -117,13 +117,13 @@ for incremental build and proper APT support in eclipse.
     <!-- select a license for license:format, should match the license above. Select between: BSD-3, MIT, CONFIDENTIAL -->
     <parameter.license>
     
-    <!-- owasp security plugin, non need to change -->
+    <!-- owasp security plugin, no need to change -->
     <parameter.owasp.failOnCVSSLevelOrGreater>
     
     <!-- instructs pmd to perform incremental analysis -->
     <parameter.pmd.analysisCache>
     
-    <!-- should a pmd violation fail the buid -->
+    <!-- should a pmd violation fail the build -->
     <parameter.pmd.fail>
     
     <!-- pmd config, touch if you want to change. -->
