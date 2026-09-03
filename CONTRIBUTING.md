@@ -10,7 +10,7 @@ The intent and goal of open sourcing this project is because it may contain usef
 
 # Issues, requests & ideas
 
-Use GitHub Issues page to submit issues, enhancement requests and discuss ideas.
+Use the GitHub Issues page to submit issues, enhancement requests and discuss ideas.
 
 ### Bug Reports and Fixes
 -  If you find a bug, please search for it in the [Issues](https://github.com/salesforce/MavenParent/issues), and if it isn't already tracked,
@@ -29,9 +29,9 @@ Use GitHub Issues page to submit issues, enhancement requests and discuss ideas.
 
 ### Tests, Documentation, Miscellaneous
 -  If you'd like to improve the tests, you want to make the documentation clearer, you have an
-   alternative implementation of something that may have advantages over the way its currently
+   alternative implementation of something that may have advantages over the way it's currently
    done, or you have any other change, we would be happy to hear about it!
-  -  If its a trivial change, go ahead and [send a Pull Request](#creating_a_pull_request) with the changes you have in mind.
+  -  If it's a trivial change, go ahead and [send a Pull Request](#creating_a_pull_request) with the changes you have in mind.
   -  If not, [open an Issue](https://github.com/salesforce/MavenParent/issues/new) to discuss the idea first.
 
 If you're new to our project and looking for some way to make your first contribution, look for
@@ -46,7 +46,7 @@ Issues labelled `good first contribution`.
   - Comments on complex blocks of code or algorithms (include references to sources).
 - [x] Tests
   - The test suite, if provided, must be complete and pass
-  - Increase code coverage, not versa.
+  - Increase code coverage, not vice versa.
   - Use any of our testkits that contains a bunch of testing facilities you would need. For example: `import com.salesforce.op.test._` and borrow inspiration from existing tests.
 - [x] Dependencies
   - Minimize number of dependencies.
