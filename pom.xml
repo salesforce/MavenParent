@@ -42,10 +42,13 @@
         <parameter.distribution.skipstaging>false</parameter.distribution.skipstaging>
         <parameter.distribution.snapshots>https://oss.sonatype.org/content/repositories/snapshots/</parameter.distribution.snapshots>
         <parameter.github.site.deploy.skip>false</parameter.github.site.deploy.skip>
+        <parameter.github.site.scm.branch>gh-pages</parameter.github.site.scm.branch>
+        <parameter.github.site.scm.url>scm:git:https://${github.domain}/${github.owner}/${github.project}.git</parameter.github.site.scm.url>
         <parameter.license>BSD-3</parameter.license>
         <parameter.sortpom.disabled>false</parameter.sortpom.disabled>
         <parameter.standard.site.deploy.skip>true</parameter.standard.site.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.antrun.maven.plugin>3.1.0</version.antrun.maven.plugin>
         <version.clean.maven.plugin>3.4.1</version.clean.maven.plugin>
         <version.compiler.maven.plugin>3.14.0</version.compiler.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
@@ -53,6 +56,7 @@
         <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
         <version.pmd.maven.plugin>3.26.0</version.pmd.maven.plugin>
         <version.reports.maven.plugin>3.1.2</version.reports.maven.plugin>
+        <version.scm-publish.maven.plugin>3.3.0</version.scm-publish.maven.plugin>
         <version.site.maven.plugin>3.12.1</version.site.maven.plugin>
         <version.sortpom.maven.plugin>2.12.0</version.sortpom.maven.plugin>
         <version.sources.maven.plugin>3.2.1</version.sources.maven.plugin>
@@ -94,21 +98,24 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>com.github.github</groupId>
-                    <artifactId>site-maven-plugin</artifactId>
-                    <version>0.12</version>
-                    <configuration>
-                        <path>${github.site.location}</path>
-                        <merge>true</merge>
-                        <message>Updating maven generated documentation for ${project.version}</message>
-                        <skip>${parameter.github.site.deploy.skip}</skip>
-                    </configuration>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>${version.antrun.maven.plugin}</version>
                     <executions>
                         <execution>
+                            <id>stage-site-for-publish</id>
                             <goals>
-                                <goal>site</goal>
+                                <goal>run</goal>
                             </goals>
-                            <phase>site-deploy</phase>
+                            <phase>post-site</phase>
+                            <configuration>
+                                <skip>${parameter.github.site.deploy.skip}</skip>
+                                <target>
+                                    <copy todir="${project.build.directory}/scmpublish/${github.site.location}">
+                                        <fileset dir="${project.reporting.outputDirectory}"></fileset>
+                                    </copy>
+                                </target>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -140,6 +147,28 @@
                             <goals>
                                 <goal>jar</goal>
                             </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>${version.scm-publish.maven.plugin}</version>
+                    <configuration>
+                        <pubScmUrl>${parameter.github.site.scm.url}</pubScmUrl>
+                        <content>${project.build.directory}/scmpublish</content>
+                        <scmBranch>${parameter.github.site.scm.branch}</scmBranch>
+                        <checkinComment>Updating maven generated documentation for ${project.version}</checkinComment>
+                        <skipDeployment>${parameter.github.site.deploy.skip}</skipDeployment>
+                        <tryUpdate>true</tryUpdate>
+                        <skipDeletedFiles>true</skipDeletedFiles>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>publish-scm</goal>
+                            </goals>
+                            <phase>site-deploy</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -188,13 +217,16 @@
                 <artifactId>sortpom-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <!-- default to deploying to github site with github plugin. -->
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -283,7 +315,7 @@
         <site>
             <id>${github.domain}</id>
             <name>${github.domain}</name>
-            <url>scm:git:ssh://git@${github.domain}/${github.owner}/${github.project}.git</url>
+            <url>${parameter.github.site.scm.url}</url>
         </site>
     </distributionManagement>
 </project>
