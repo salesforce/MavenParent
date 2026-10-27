@@ -181,19 +181,18 @@ for incremental build and proper APT support in eclipse.
 Add credentials in your ~/.m2/settings.xml like:
     
 ```xml
-    <!-- if you also will be deploying open source projects, and have an account at https://oss.sonatype.org/
-       then include this section -->
+    <!-- if you also will be deploying open source projects, mint a token at https://central.sonatype.com/usertoken and include this section -->
     <server>
       <id>oss.sonatype.org</id>
-      <username><!-- REPLACE WITH TOKEN FROM https://oss.sonatype.org/ --></username>
-      <password><!-- REPLACE WITH TOKEN FROM https://oss.sonatype.org/ --></password>
+      <username><!-- REPLACE WITH TOKEN FROM https://central.sonatype.com/usertoken --></username>
+      <password><!-- REPLACE WITH TOKEN FROM https://central.sonatype.com/usertoken --></password>
     </server>
 ```
 
 Note on Mac/Linux since gpg 2.1+, you'll want to assert your gpg tty is set, so deploy like:
 ```bash
-mvn clean deploy -Dgpg.useagent=true
 export GPG_TTY=$(tty)
+mvn clean deploy -Dgpg.useagent=true
 ```
 
 

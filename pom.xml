@@ -37,10 +37,10 @@
         <github.site.location>${project.version}/</github.site.location>
         <github.site.server>${github.domain}</github.site.server>
         <parameter.distribution.autorelease>true</parameter.distribution.autorelease>
-        <parameter.distribution.nexus>oss.sonatype.org</parameter.distribution.nexus>
-        <parameter.distribution.releases>https://oss.sonatype.org/service/local/staging/deploy/maven2/</parameter.distribution.releases>
+        <parameter.distribution.nexus>https://ossrh-staging-api.central.sonatype.com</parameter.distribution.nexus>
+        <parameter.distribution.releases>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</parameter.distribution.releases>
         <parameter.distribution.skipstaging>false</parameter.distribution.skipstaging>
-        <parameter.distribution.snapshots>https://oss.sonatype.org/content/repositories/snapshots/</parameter.distribution.snapshots>
+        <parameter.distribution.snapshots>https://central.sonatype.com/repository/maven-snapshots/</parameter.distribution.snapshots>
         <parameter.github.site.deploy.skip>false</parameter.github.site.deploy.skip>
         <parameter.github.site.scm.branch>gh-pages</parameter.github.site.scm.branch>
         <parameter.github.site.scm.url>scm:git:https://${github.domain}/${github.owner}/${github.project}.git</parameter.github.site.scm.url>
@@ -53,7 +53,7 @@
         <version.compiler.maven.plugin>3.14.0</version.compiler.maven.plugin>
         <version.gpg.maven.plugin>1.6</version.gpg.maven.plugin>
         <version.javadoc.maven.plugin>3.11.2</version.javadoc.maven.plugin>
-        <version.nexus.staging.maven.plugin>1.6.8</version.nexus.staging.maven.plugin>
+        <version.nexus.staging.maven.plugin>1.6.13</version.nexus.staging.maven.plugin>
         <version.pmd.maven.plugin>3.26.0</version.pmd.maven.plugin>
         <version.reports.maven.plugin>3.1.2</version.reports.maven.plugin>
         <version.scm-publish.maven.plugin>3.3.0</version.scm-publish.maven.plugin>
@@ -204,7 +204,7 @@
                     <extensions>true</extensions>
                     <configuration>
                         <skipStaging>${parameter.distribution.skipstaging}</skipStaging>
-                        <nexusUrl>https://${parameter.distribution.nexus}</nexusUrl>
+                        <nexusUrl>${parameter.distribution.nexus}</nexusUrl>
                         <serverId>${parameter.distribution.nexus}</serverId>
                         <autoReleaseAfterClose>${parameter.distribution.autorelease}</autoReleaseAfterClose>
                     </configuration>
